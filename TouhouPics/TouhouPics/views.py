@@ -1,8 +1,15 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+from django.http import HttpResponse,JsonResponse
 from . import db
 
 base_path="http://i0.hdslb.com/bfs/article/"
+
+def api(request):
+    #print(request.POST)
+    if request.POST.get("method")=="random":
+        return JsonResponse({'url':base_path + db.get_random()})
+    else:
+        return HttpResponse("连接成功")
 
 def random(request):
     context = {}
