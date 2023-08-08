@@ -24,23 +24,23 @@
 **response:** id，url
 
 #### **getRandomItem**  
-随机获取单张图片的url和tag信息
+随机获取单张图片的url和tag信息  
 **request:** /  
 **response:** id，url，author，character，tags，likes
 
 #### **getItemById**  
 使用id查询单张图片的信息  
-**request:** id
+**request:** id  
 **response:** id，url，author，character，tags，likes / message “请求的对象不存在”
 
 #### **getItemByName**  
 使用文件名查询单张图片的信息  
-**request:** name
+**request:** name  
 **response:** id，url，author，character，tags，likes / message “请求的对象不存在”
 
 #### **ifExist**  
 使用文件的sha1哈希查询是否在数据库中存在  
-**request:** hash
+**request:** hash  
 **response:** exist ("true" or "false") / message “发生错误”
 
 
