@@ -5,11 +5,12 @@ from . import db
 base_path="http://i0.hdslb.com/bfs/article/"
 
 def api(request):
-    #print(request.POST)
-    if request.POST.get("method")=="random":
-        return JsonResponse({'url':base_path + db.get_random()})
+    method = request.POST.get("method")
+    if method =="getRandomUrl":
+        dbres = db.get_random_url()
+        return JsonResponse({'url':base_path + dbres[1], "id":dbres[0]})
     else:
-        return HttpResponse("连接成功")
+        return JsonResponse({"message":"连接成功"})
 
 def random(request):
     context = {}

@@ -2,9 +2,11 @@ from Pics.models import pictures
 import random as rd
 import os
 
-def get_random():
-    url = pictures.objects.all()[rd.randint(0,pictures.objects.count()-1)].name
-    return url
+def get_random_url():
+    item = pictures.objects.all()[rd.randint(0,pictures.objects.count()-1)]
+    url = item.name
+    id_ = item.id
+    return (id_,url)
 
 def get_single(path):
     try:
