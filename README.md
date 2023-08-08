@@ -31,16 +31,16 @@
 #### **getItemById**  
 使用id查询单张图片的信息  
 **request:** id  
-**response:** id，url，author，character，tags，likes / message “请求的对象不存在”
+**response:** id，url，author，character，tags，likes / message “Not found”
 
 #### **getItemByName**  
 使用文件名查询单张图片的信息  
 **request:** name  
-**response:** id，url，author，character，tags，likes / message “请求的对象不存在”
+**response:** id，url，author，character，tags，likes / message “Not found”
 
 #### **ifExist**  
 使用文件的sha1哈希查询是否在数据库中存在  
 **request:** hash  
-**response:** exist ("true" or "false") / message “发生错误”
+**response:** exist ("true" or "false") / message “error”
 
 

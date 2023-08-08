@@ -20,3 +20,7 @@ print(res.text)'''
 req={"method":"ifExist","hash":"399c85ab47828e8997fb53a7a1416905d45ac8ce"}
 res=requests.post(url=url,data=req)
 print(res.text)
+
+req={"method":"like","id":"1145"}
+res=requests.post(url=url,data=req)
+print(res.text)
