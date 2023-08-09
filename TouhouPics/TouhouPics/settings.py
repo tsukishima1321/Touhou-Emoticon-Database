@@ -89,17 +89,7 @@ DATABASES = {
 }
 
 # 远程数据库
-'''DATABASES = { 
-    'default': 
-    { 
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'touhou',
-        'HOST': 'mysql.sqlpub.com',
-        'PORT': 3306,
-        'USER': 'tsukishima',
-        'PASSWORD': '053a0bf22e35cd6f',
-    }  
-}'''
+###
 
 
 # Password validation
