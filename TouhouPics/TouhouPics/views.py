@@ -31,6 +31,22 @@ def api(request):
             return JsonResponse({"message":"Not Found"})
         return std_item_res(dbres)
     
+    elif method == "searchByTag":
+        dbres = db.search_ids_by_tag(request.POST)
+        if dbres == -1:
+            return JsonResponse({"message":"Not Found"})
+        elif dbres == -2:
+            return JsonResponse({"message":"error"})
+        return JsonResponse({"ids":dbres})
+    
+    elif method == "randomItemByTag":
+        dbres = db.random_item_by_tag(request.POST)
+        if dbres == -1:
+            return JsonResponse({"message":"Not Found"})
+        elif dbres == -2:
+            return JsonResponse({"message":"error"})
+        return std_item_res(dbres)
+    
     elif method == "ifExist":
         dbres = db.if_hash_exist(request.POST.get("hash"))
         if dbres == 1:
