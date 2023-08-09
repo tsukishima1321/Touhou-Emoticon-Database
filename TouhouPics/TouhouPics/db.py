@@ -10,7 +10,8 @@ def get_random_url():
     item = pictures.objects.all()[rd.randint(0,pictures.objects.count()-1)]
     name = item.name
     id_ = item.id
-    return {'id':id_, 'name':name}
+    source = item.source
+    return {'id':id_, 'name':name, 'source':source}
     
 def get_random_item():
     item = pictures.objects.all()[rd.randint(0,pictures.objects.count()-1)]
@@ -37,12 +38,12 @@ def get_item_by_id(id_:int):
     
 def if_hash_exist(h:str):
     try:
-        pic = pictures.objects.get(hash_sha=h)
+        pic = pictures.objects.get(md5=h)
         return 1
     except pictures.DoesNotExist:
         return -1
     except pictures.MultipleObjectsReturned:
-        logger.errorLog(e,"Multiple Objects Returned With Same Name: "+path)
+        logger.errorLog(e,"Multiple Objects Returned With Same Hash: "+h)
         return 1
     
 def add_tag(dic:dict):
@@ -226,3 +227,34 @@ def random_item_by_tag(dic:dict):
     if qset.count() == 0:
         return -1
     return qset[rd.randint(0,qset.count()-1)]
+
+def upload(dic:dict):
+    name_ = dic.get("name")
+    if name_ == None:
+        return -1
+    md5_ = dic.get("md5")
+    if md5_ == None:
+        md5_ = "from_imgTP"
+    else:
+        if if_hash_exist(md5_) == 1:
+            try:
+                pic = pictures.objects.get(md5=md5_)
+            except pictures.MultipleObjectsReturned:
+                logger.errorLog(e,"Multiple Objects Returned With Same Hash: "+md5_)
+                pic = pictures.objects.all(md5=md5_)[0]
+            return pic
+    author_ = dic.get("author")
+    if author_ == None:
+        author_ == ""
+    character_ = dic.get("character")
+    if character_ == None:
+        character_ == ""
+    tags_ = dic.get("tags")
+    if tags_ == None:
+        tags_ == ""
+    try:
+        pictures.objects.create(name=name_,md5=md5_,author=author_,character=character_,tags=tags_,source=1)
+    except Exception as e:
+        logger.errorLog(e)
+        return -2
+    return get_item_by_name(name_)

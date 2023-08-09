@@ -39,46 +39,46 @@
 
 
 #### **getRandomItem**  
-随机获取单张图片的url和tag信息  
+> 随机获取单张图片的url和tag信息  
 **request:** /  
 **response:** stditem
 
 #### **getItemById**  
-使用id查询单张图片的信息  
+> 使用id查询单张图片的信息  
 **request:** id  
 **response:** stditem / message “Not found”
 
 #### **getItemByName**  
-使用文件名查询单张图片的信息  
+> 使用文件名查询单张图片的信息  
 **request:** name  
 **response:** stditem / message “Not found”
 
 #### **ifExist**  
-使用文件的sha1哈希查询是否在数据库中存在  
+> 使用文件的sha1哈希查询是否在数据库中存在  
 **request:** hash  
 **response:** exist ("true" or "false") / message “error”
 
 #### **addTag**  
-为图片增加tag  
+> 为图片增加tag  
 **request:** id, (at least one in) anthor, character, tags  
 **response:** stditem / message “error” "Too Long" "Invalid Text" "Not Found"  
 用#分隔单个的标签：```{"character":"#恋恋#古明地恋"}```
 
 #### **editTag**  
-编辑图片的tag  
+> 编辑图片的tag  
 **request:** id, (at least one in) anthor, character, tags  
 **response:** stditem / message “error” "Too Long" "Invalid Text" "Not Found"  
 提交标签的格式同上  
 **Warning:** 该操作将覆盖数据库中原有的标签, 提交```{"tags":""}```会将tags标签组编辑为空, 如果不想编辑某个tag组, 请不要在请求中加入tag组的字段
 
 #### **randomItemByTag**  
-返回随机的符合搜索条件的图片  
+> 返回随机的符合搜索条件的图片  
 **request:** (at least one in) anthor, character, tags  
 **response:** stditem / message “error” "Not Found"  
 可以提交多个标签、来自不同标签组的标签, 所有标签间为与关系
 
 #### **searchByTag**  
-返回符合搜索条件的id  
+> 返回符合搜索条件的id  
 **request:** (at least one in) anthor, character, tags, (optional default=1)page, (optional default="id")order
 **response:** ids(a list of id) / message “error” "Not Found"  
 可以提交多个标签、来自不同标签组的标签, 所有标签间为与关系  
@@ -86,16 +86,28 @@ page为从1开始的整数, 表示访问搜索结果的页数, 一页20个结果
 order从"random"、"id"、"likes"中选择, 表示按随机、id、点赞数升序排序, "id_r"、"likes_r"为降序
 
 #### **report**  
-举报图片  
+> 举报图片  
 **request:** id, reason, (optional)detail
 **response:** message ":\)" / "Not Found"
 
 #### **likes**  
-为图片点赞  
+> 为图片点赞  
 **request:** id  
 **response:** message ":\)" / "Not Found" 
 
 #### **similar**  
-汇报相似的图片  
+> 汇报相似的图片  
 **request:** id_main, ids(a list of id similar to the main picture)  
 **response:** message ":\)" / "Not Found" 
+
+#### **upload**  
+> 向数据库添加图片  
+**request:** name, (optional)anthor, (optional)character, (optional)tags, (optional)md5  
+**response:** stditem / message: "error"  
+
+如何添加图片：  
+1. 在https://www.imgtp.com/上传你的图片  
+2. 查看网页返回的图片url，eg:```https://img1.imgtp.com/2023/08/09/mDIAOlyS.jpg```，选择不包含域名的部分作为name字段```{"name":"2023/08/09/mDIAOlyS.jpg"}```   
+3. (optional)填写标签和md5(可在网站 登录-图片管理-图片信息 查看，或自行计算)  
+
+如果提交的md5已经存在，会返回当前数据库中md5匹配的stditem
