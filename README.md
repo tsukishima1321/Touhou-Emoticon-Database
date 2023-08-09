@@ -54,7 +54,7 @@
 **response:** stditem / message “Not found”
 
 #### **ifExist**  
-> 使用文件的sha1哈希查询是否在数据库中存在  
+> 使用文件的md5(32个字符)哈希查询是否在数据库中存在  
 **request:** hash  
 **response:** exist ("true" or "false") / message “error”
 
