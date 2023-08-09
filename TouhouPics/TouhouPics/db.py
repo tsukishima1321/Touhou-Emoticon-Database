@@ -1,4 +1,4 @@
-from Pics.models import pictures
+from pics.models import pictures
 from django.db import DatabaseError
 from django.core.paginator import Paginator
 from django.core.paginator import InvalidPage

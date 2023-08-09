@@ -38,7 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'Pics',
+    'pics',
 ]
 
 MIDDLEWARE = [
@@ -75,6 +75,7 @@ WSGI_APPLICATION = 'TouhouPics.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
+# 本机数据库
 DATABASES = { 
     'default': 
     { 
@@ -86,6 +87,19 @@ DATABASES = {
         'PASSWORD': '343542',
     }  
 }
+
+# 远程数据库
+'''DATABASES = { 
+    'default': 
+    { 
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'touhou',
+        'HOST': 'mysql.sqlpub.com',
+        'PORT': 3306,
+        'USER': 'tsukishima',
+        'PASSWORD': '053a0bf22e35cd6f',
+    }  
+}'''
 
 
 # Password validation
