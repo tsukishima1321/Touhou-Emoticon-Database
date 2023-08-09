@@ -8,20 +8,20 @@
 
 ## 开发计划
 1. 设计数据库
-2. 用Web框架编写增删改查api，在查的基础上增加应用。
+2. 用Web框架编写增删改查api, 在查的基础上增加应用。
 3. 部署并测试
 4. 编写WebUI和其他客户端
 
 ## Jsonapi
 提交POST请求到/api/来使用Jsonapi  
-用method字段指定调用的api方法：```{“method”:"xxx"}```，如果方法名无效，会返回```{"message":"连接成功"}```  
+用method字段指定调用的api方法：```{“method”:"xxx"}```, 如果方法名无效, 会返回```{"message":"连接成功"}```  
 
 ### **方法列表：**
 
 #### **getRandomUrl**  
 随机获取单张图片的url和id  
 **request:** /  
-**response:** id，url
+**response:** id, url
 
 
 大部分针对单张图片的api会返回图片所有需要展示的信息：
@@ -60,13 +60,42 @@
 
 #### **addTag**  
 为图片增加tag  
-**request:** id，(at least one in) anthor，character，tags  
+**request:** id, (at least one in) anthor, character, tags  
 **response:** stditem / message “error” "Too Long" "Invalid Text" "Not Found"  
 用#分隔单个的标签：```{"character":"#恋恋#古明地恋"}```
 
 #### **editTag**  
 编辑图片的tag  
-**request:** id，(at least one in) anthor，character，tags  
+**request:** id, (at least one in) anthor, character, tags  
 **response:** stditem / message “error” "Too Long" "Invalid Text" "Not Found"  
 提交标签的格式同上  
-**Warning:** 该操作将覆盖数据库中原有的标签，提交```{"tags":""}```会将tags标签组编辑为空，如果不想编辑某个tag组，请不要在请求中加入tag组的字段
+**Warning:** 该操作将覆盖数据库中原有的标签, 提交```{"tags":""}```会将tags标签组编辑为空, 如果不想编辑某个tag组, 请不要在请求中加入tag组的字段
+
+#### **randomItemByTag**  
+返回随机的符合搜索条件的图片  
+**request:** (at least one in) anthor, character, tags  
+**response:** stditem / message “error” "Not Found"  
+可以提交多个标签、来自不同标签组的标签, 所有标签间为与关系
+
+#### **searchByTag**  
+返回符合搜索条件的id  
+**request:** (at least one in) anthor, character, tags, (optional default=1)page, (optional default="id")order
+**response:** ids(a list of id) / message “error” "Not Found"  
+可以提交多个标签、来自不同标签组的标签, 所有标签间为与关系  
+page为从1开始的整数, 表示访问搜索结果的页数, 一页20个结果  
+order从"random"、"id"、"likes"中选择, 表示按随机、id、点赞数升序排序, "id_r"、"likes_r"为降序
+
+#### **report**  
+举报图片  
+**request:** id, reason, (optional)detail
+**response:** message ":\)" / "Not Found"
+
+#### **likes**  
+为图片点赞  
+**request:** id  
+**response:** message ":\)" / "Not Found" 
+
+#### **similar**  
+汇报相似的图片  
+**request:** id_main, ids(a list of id similar to the main picture)  
+**response:** message ":\)" / "Not Found" 

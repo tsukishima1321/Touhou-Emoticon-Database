@@ -49,6 +49,14 @@ print(res.text.encode('utf-8').decode('unicode_escape'))'''
 res=requests.post(url=url,data=req)
 print(res.text.encode('utf-8').decode('unicode_escape'))'''
 
-req={"method":"searchByTag","tags":"#笨蛋","page":"1","order":"random"}
+req={"method":"randomItemByTag","character":"⑨","tags":"#笨蛋#baka"}
+res=requests.post(url=url,data=req)
+print(res.text.encode('utf-8').decode('unicode_escape'))
+
+req={"method":"searchByTag","character":"⑨","tags":"#笨蛋#baka","page":"1","order":"id_r"}
+res=requests.post(url=url,data=req)
+print(res.text.encode('utf-8').decode('unicode_escape'))
+
+req={"method":"report","id":"1145","reason":"太可爱了"}
 res=requests.post(url=url,data=req)
 print(res.text.encode('utf-8').decode('unicode_escape'))

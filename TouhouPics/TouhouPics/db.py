@@ -3,6 +3,7 @@ from django.db import DatabaseError
 from django.core.paginator import Paginator
 from django.core.paginator import InvalidPage
 import random as rd
+from . import logger
 import os
 
 def get_random_url():
@@ -21,10 +22,8 @@ def get_item_by_name(path:str):
         return pic
     except pictures.DoesNotExist:
         return -1
-    except pictures.MultipleObjectsReturned:
-        f = open("errorlog.txt","a")
-        f.write("Multiple Objects Returned With Same Name: "+path+"\n")
-        f.close()
+    except pictures.MultipleObjectsReturned as e:
+        logger.errorLog(e,"Multiple Objects Returned With Same Name: "+path)
         #delete from pics_pictures where id not in ( select dt.id from ( select min(id) as id from pics_pictures group by name ) dt)
         pic = pictures.objects.filter(name=path)[0]
         return pic
@@ -43,9 +42,7 @@ def if_hash_exist(h:str):
     except pictures.DoesNotExist:
         return -1
     except pictures.MultipleObjectsReturned:
-        f = open("errorlog.txt","a")
-        f.write("Multiple Objects Returned With Same Hash: "+h+"\n")
-        f.close()
+        logger.errorLog(e,"Multiple Objects Returned With Same Name: "+path)
         return 1
     
 def add_tag(dic:dict):
@@ -79,10 +76,7 @@ def add_tag(dic:dict):
         #catch too long error
             return -1
         except Exception as e:
-            print(repr(e))
-            f = open("errorlog.txt","a")
-            f.write(repr(e)+"\n")
-            f.close()
+            logger.errorLog(e)
     if character != None:
         #same
         for c in invalidc:
@@ -101,10 +95,7 @@ def add_tag(dic:dict):
         except DatabaseError:
             return -1
         except Exception as e:
-            print(repr(e))
-            f = open("errorlog.txt","a")
-            f.write(repr(e)+"\n")
-            f.close()
+            logger.errorLog(e)
             return -4
     if tag != None:
         #same
@@ -124,10 +115,7 @@ def add_tag(dic:dict):
         except DatabaseError:
             return -1
         except Exception as e:
-            print(repr(e))
-            f = open("errorlog.txt","a")
-            f.write(repr(e)+"\n")
-            f.close()
+            logger.errorLog(e)
     try:
         pic.save()
     except DatabaseError:
@@ -198,22 +186,43 @@ def search_ids_by_tag(dic:dict):
     order = dic.get("order")
     if order == "likes":
         qset = qset.order_by("likes")
+    elif order == "likes_r":
+        qset = qset.order_by("-likes")
     elif order == "random":
         qset = qset.order_by("?")
+    elif order == "id_r":
+        qset = qset.order_by("-id")
     else:
         qset = qset.order_by("id")
-    pages = Paginator(qset,20)
+    pages = Paginator(qset.values_list("id", flat=True),20)
     try:
         page = dic.get("page")
         if  page == None:
             page = 1
-        return list(pages.page(page).object_list)
+        return list(pages.page(page))
     except InvalidPage:
         return -1
-    except:
+    except Exception as e:
+        logger.errorLog(e)
         return -2
 
-
-
 def random_item_by_tag(dic:dict):
-    pass
+    authors = dic.get("author")
+    characters = dic.get("character")
+    tags = dic.get("tags")
+    qset = pictures.objects.all()
+    if authors != None:
+        authors = authors.split("#")
+        for author in authors:
+            qset = qset.filter(author__contains=author)
+    if characters != None:
+        characters = characters.split("#")
+        for character in characters:
+            qset = qset.filter(character__contains=character)
+    if tags != None:
+        tags = tags.split("#")
+        for tag in tags:
+            qset = qset.filter(tags__contains=tag)
+    if qset.count() == 0:
+        return -1
+    return qset[rd.randint(0,qset.count()-1)]

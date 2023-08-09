@@ -146,3 +146,6 @@ AttributeError("'pictures' object has no attribute 'tag'",)
 AttributeError("'pictures' object has no attribute 'tag'",)
 AttributeError("'pictures' object has no attribute 'tag'",)
 AttributeError("'pictures' object has no attribute 'tag'",)
+AttributeError("'Page' object has no attribute 'values_list'",)
+
+

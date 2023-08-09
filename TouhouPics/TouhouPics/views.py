@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse,JsonResponse
 from . import db
+from . import logger
 
 base_path="http://i0.hdslb.com/bfs/article/"
 
@@ -80,6 +81,41 @@ def api(request):
             return JsonResponse({"message":"error"})
         else:
             return std_item_res(dbres)
+        
+    elif method == "report":
+        reason = request.POST.get("reason")
+        id_ = request.POST.get("id")
+        detail = request.POST.get("detail")
+        dbres = db.get_item_by_id(id_)
+        if dbres == -1:
+            return JsonResponse({"message":"Not Found"})
+        if reason == None:
+            return JsonResponse({"message":"Invalid Text"})
+        url = base_path + dbres.name
+        if detail == None:
+            logger.reportLog(id_,url,reason)
+        else:
+            logger.reportLog(id_,url,reason,detail)
+        return JsonResponse({"message":":)"})
+
+    elif method == "similar":
+        id_ = request.POST.get("id_main")
+        ids = request.POST.get("ids")
+        if id_ == None:
+            return JsonResponse({"message":"Invalid Id"})
+        if ids == None:
+            return JsonResponse({"message":"Invalid Id"})
+        dbres = db.get_item_by_id(id_)
+        if dbres == -1:
+            return JsonResponse({"message":"Not Found"})
+        url = base_path + dbres.name
+        urls = []
+        for i in ids:
+            if dbres == -1:
+                return JsonResponse({"message":"Not Found"})
+            urls.append(base_path + dbres.name)
+        logger.similarLog(id_,url,ids,urls)
+        return JsonResponse({"message":":)"})
         
     elif method == "like":
         dbres = db.like(request.POST.get("id"))
