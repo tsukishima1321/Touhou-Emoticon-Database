@@ -69,6 +69,7 @@
 **request:** id, (at least one in) anthor, character, tags  
 **response:** stditem / message “error” "Too Long" "Invalid Text" "Not Found"  
 提交标签的格式同上  
+
 **Warning:** 该操作将覆盖数据库中原有的标签, 提交```{"tags":""}```会将tags标签组编辑为空, 如果不想编辑某个tag组, 请不要在请求中加入tag组的字段
 
 #### **randomItemByTag**  
@@ -87,7 +88,7 @@ order从"random"、"id"、"likes"中选择, 表示按随机、id、点赞数升�
 
 #### **report**  
 > 举报图片  
-**request:** id, reason, (optional)detail
+**request:** id, reason, (optional)detail  
 **response:** message ":\)" / "Not Found"
 
 #### **likes**  
