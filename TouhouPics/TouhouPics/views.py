@@ -132,6 +132,30 @@ def api(request):
         elif dbres == -2:
             return JsonResponse({"message":"error"})
         return std_item_res(dbres)
+    
+    elif method == "delete":
+        dbres = db.delete(request.POST)
+        if dbres == -1:
+            return JsonResponse({"message":"Not Found"})
+        elif dbres == -2:
+            return JsonResponse({"message":"Permission Denied"})
+        elif dbres == -3:
+            return JsonResponse({"message":"error"})
+        else:
+            return JsonResponse({"message":":)"})
+        
+    elif method == "merge":
+        dbres = db.merge(request.POST)
+        if dbres == -1:
+            return JsonResponse({"message":"Not Found"})
+        elif dbres == -2:
+            return JsonResponse({"message":"Permission Denied"})
+        elif dbres == -3:
+            return JsonResponse({"message":"Too Long"})
+        elif dbres == -4:
+            return JsonResponse({"message":"error"})
+        else:
+            return std_item_res(dbres)
 
     else:
         return JsonResponse({"message":"连接成功"})

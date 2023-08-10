@@ -1,10 +1,13 @@
 from pics.models import pictures
 from django.db import DatabaseError
+from django.db.models import Q
 from django.core.paginator import Paginator
 from django.core.paginator import InvalidPage
+import hashlib
 import random as rd
 from . import logger
-import os
+
+admin_password_hash = ["50fbccb1d90ad0073f52ec277efaedad",]
 
 def get_random_url():
     item = pictures.objects.all()[rd.randint(0,pictures.objects.count()-1)]
@@ -42,7 +45,7 @@ def if_hash_exist(h:str):
         return 1
     except pictures.DoesNotExist:
         return -1
-    except pictures.MultipleObjectsReturned:
+    except pictures.MultipleObjectsReturned as e:
         logger.errorLog(e,"Multiple Objects Returned With Same Hash: "+h)
         return 1
     
@@ -183,7 +186,7 @@ def search_ids_by_tag(dic:dict):
     if tags != None:
         tags = tags.split("#")
         for tag in tags:
-            qset = qset.filter(tags__contains=tag)
+            qset = qset.filter(Q(tags__contains=tag)|Q(character__contains=tag)|Q(author__contains=tag))
     order = dic.get("order")
     if order == "likes":
         qset = qset.order_by("likes")
@@ -243,6 +246,8 @@ def upload(dic:dict):
                 logger.errorLog(e,"Multiple Objects Returned With Same Hash: "+md5_)
                 pic = pictures.objects.all(md5=md5_)[0]
             return pic
+    if get_item_by_name("name_") != -1:
+        return get_item_by_name(name_)
     author_ = dic.get("author")
     if author_ == None:
         author_ == ""
@@ -253,8 +258,92 @@ def upload(dic:dict):
     if tags_ == None:
         tags_ == ""
     try:
-        pictures.objects.create(name=name_,md5=md5_,author=author_,character=character_,tags=tags_,source=1)
+        pictures.objects.create(name=name_,md5=md5_,author=author_,character=character_,tags=tags_,source=1,likes=0)
     except Exception as e:
         logger.errorLog(e)
         return -2
     return get_item_by_name(name_)
+
+def delete(dic:dict):
+    pw = dic.get("password")
+    if pw == None:
+        return -2
+    if hashlib.md5(pw.encode('utf-8')).hexdigest() not in admin_password_hash:
+        return -2
+    id_ = dic.get("id")
+    try:
+        pic = pictures.objects.get(id=id_)
+    except pictures.DoesNotExist:
+        return -1
+    pic.delete()
+    return 1
+
+def merge(dic:dict):
+    pw = dic.get("password")
+    if pw == None:
+        return -2
+    if hashlib.md5(pw.encode('utf-8')).hexdigest() not in admin_password_hash:
+        return -2
+    id_main = dic.get("id_main")
+    ids = dic.getlist("ids")
+    try:
+        pic_main = pictures.objects.get(id=id_main)
+    except pictures.DoesNotExist:
+        return -1
+    if pic_main.author != None:
+        authors_main = set(pic_main.author.split('#'))
+    else:
+        authors_main = set()
+    if pic_main.character != None:
+        characters_main = set(pic_main.character.split('#'))
+    else:
+        characters_main = set()
+    if pic_main.tags != None:
+        tags_main = set(pic_main.tags.split('#'))
+    else:
+        tags_main = set()
+    print (ids)
+    for id_ in ids:
+        try:
+            pic = pictures.objects.get(id=id_)
+        except pictures.DoesNotExist:
+            return -1
+        if pic.author != None:
+            authors = pic.author.split('#')
+            for author in authors:
+                authors_main.add(author)
+        if pic.character != None:
+            characters = pic.character.split('#')
+            for character in characters:
+                characters_main.add(character)
+        if pic.tags != None:
+            tags = pic.tags.split('#')
+            for tag in tags:
+                tags_main.add(tag)
+        pic_main.likes += pic.likes
+    authors_final = ""
+    characters_final = ""
+    tags_final = ""
+    for author in authors_main:
+        authors_final += "#"
+        authors_final += author
+    for character in characters_main:
+        characters_final += "#"
+        characters_final += character
+    for tag in tags_main:
+        tags_final += "#"
+        tags_final += tag
+    try:
+        pic_main.author = authors_final
+        pic_main.character = characters_final
+        pic_main.tags = tags_final
+        pic_main.save()
+    except DatabaseError:
+        return -3
+    except Exception as e:
+        logger.errorLog(e)
+        return -4    
+    for id_ in ids:
+        pic = pictures.objects.get(id=id_)
+        pic.delete()
+    return pic_main
