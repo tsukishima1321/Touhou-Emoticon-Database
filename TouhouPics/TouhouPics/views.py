@@ -1,4 +1,5 @@
 from django.shortcuts import render
+import json
 from django.http import HttpResponse,JsonResponse
 from . import db
 from . import logger
@@ -11,30 +12,35 @@ def std_item_res(item):
 
 def api(request):
 
-    method = request.POST.get("method")
+    if request.POST:
+        req = request.POST
+    else:
+        req = json.loads(request.body)
+
+    method = req.get("method")
 
     if method == "getRandomUrl":
         dbres = db.get_random_url()
-        return JsonResponse({"id":dbres["id"], 'url':base_path[dbres["source"]] + dbres["name"]})
+        return JsonResponse({"id":dbres["id"], 'url':base_path[dbres["source"]] + dbres["name"],'Access-Contro1-Allow-origin':"*"})
     
     elif method == "getRandomItem":
         dbres = db.get_random_item()
         return std_item_res(dbres)
     
     elif method == "getItemById":
-        dbres = db.get_item_by_id(request.POST.get("id"))
+        dbres = db.get_item_by_id(req.get("id"))
         if dbres == -1:
             return JsonResponse({"message":"Not Found"})
         return std_item_res(dbres)
     
     elif method == "getItemByName":
-        dbres = db.get_item_by_name(request.POST.get("name"))
+        dbres = db.get_item_by_name(req.get("name"))
         if dbres == -1:
             return JsonResponse({"message":"Not Found"})
         return std_item_res(dbres)
     
     elif method == "searchByTag":
-        dbres = db.search_ids_by_tag(request.POST)
+        dbres = db.search_ids_by_tag(req)
         if dbres == -1:
             return JsonResponse({"message":"Not Found"})
         elif dbres == -2:
@@ -42,7 +48,7 @@ def api(request):
         return JsonResponse({"ids":dbres})
     
     elif method == "randomItemByTag":
-        dbres = db.random_item_by_tag(request.POST)
+        dbres = db.random_item_by_tag(req)
         if dbres == -1:
             return JsonResponse({"message":"Not Found"})
         elif dbres == -2:
@@ -50,7 +56,7 @@ def api(request):
         return std_item_res(dbres)
     
     elif method == "ifExist":
-        dbres = db.if_hash_exist(request.POST.get("hash"))
+        dbres = db.if_hash_exist(req.get("hash"))
         if dbres == 1:
             return JsonResponse({"exist":"true"})
         elif dbres == -1:
@@ -58,7 +64,7 @@ def api(request):
         return JsonResponse({"message":"error"})
     
     elif method == "addTag":
-        dbres = db.add_tag(request.POST)
+        dbres = db.add_tag(req)
         if dbres == -1:
             return JsonResponse({"message":"Too Long"})
         elif dbres == -2:
@@ -71,7 +77,7 @@ def api(request):
             return std_item_res(dbres)
         
     elif method == "editTag":
-        dbres = db.edit_tag(request.POST)
+        dbres = db.edit_tag(req)
         if dbres == -1:
             return JsonResponse({"message":"Too Long"})
         elif dbres == -2:
@@ -84,9 +90,9 @@ def api(request):
             return std_item_res(dbres)
         
     elif method == "report":
-        reason = request.POST.get("reason")
-        id_ = request.POST.get("id")
-        detail = request.POST.get("detail")
+        reason = req.get("reason")
+        id_ = req.get("id")
+        detail = req.get("detail")
         dbres = db.get_item_by_id(id_)
         if dbres == -1:
             return JsonResponse({"message":"Not Found"})
@@ -100,8 +106,8 @@ def api(request):
         return JsonResponse({"message":":)"})
 
     elif method == "similar":
-        id_ = request.POST.get("id_main")
-        ids = request.POST.get("ids")
+        id_ = req.get("id_main")
+        ids = req.get("ids")
         if id_ == None:
             return JsonResponse({"message":"Invalid Id"})
         if ids == None:
@@ -119,14 +125,14 @@ def api(request):
         return JsonResponse({"message":":)"})
         
     elif method == "like":
-        dbres = db.like(request.POST.get("id"))
+        dbres = db.like(req.get("id"))
         if dbres == 1:
             return JsonResponse({"message":":)"})
         else:
             return JsonResponse({"message":"error"})
         
     elif method == "upload":
-        dbres = db.upload(request.POST)
+        dbres = db.upload(req)
         if dbres == -1:
             return JsonResponse({"message":"Invalid Text"})
         elif dbres == -2:
@@ -134,7 +140,7 @@ def api(request):
         return std_item_res(dbres)
     
     elif method == "delete":
-        dbres = db.delete(request.POST)
+        dbres = db.delete(req)
         if dbres == -1:
             return JsonResponse({"message":"Not Found"})
         elif dbres == -2:
@@ -145,7 +151,7 @@ def api(request):
             return JsonResponse({"message":":)"})
         
     elif method == "merge":
-        dbres = db.merge(request.POST)
+        dbres = db.merge(req)
         if dbres == -1:
             return JsonResponse({"message":"Not Found"})
         elif dbres == -2:
@@ -165,6 +171,12 @@ def random(request):
     dbres = db.get_random_url()
     context['url'] = base_path[dbres["source"]] + dbres["name"]
     return render(request, 'plainpic.html', context)
+
+def randoms(request):
+    return render(request, 'randomPics.html')
+
+def search(request):
+    return render(request, 'search.html')
 
 def singlePic(request):
     context = {}

@@ -175,15 +175,15 @@ def search_ids_by_tag(dic:dict):
     characters = dic.get("character")
     tags = dic.get("tags")
     qset = pictures.objects.values("id")
-    if authors != None:
+    if authors != None and authors != "":
         authors = authors.split("#")
         for author in authors:
             qset = qset.filter(author__contains=author)
-    if characters != None:
+    if characters != None and characters != "":
         characters = characters.split("#")
         for character in characters:
             qset = qset.filter(character__contains=character)
-    if tags != None:
+    if tags != None and tags != "":
         tags = tags.split("#")
         for tag in tags:
             qset = qset.filter(Q(tags__contains=tag)|Q(character__contains=tag)|Q(author__contains=tag))

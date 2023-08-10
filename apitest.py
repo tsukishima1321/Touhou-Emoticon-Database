@@ -109,7 +109,11 @@ req={"method":"delete","id":"4450","password":"229028"}
 res=requests.post(url=url,data=req)
 print(res.text.encode('utf-8').decode('unicode_escape'))'''
 
-req={"method":"searchByTag","tags":"#虚无僧#笨蛋"}
+req={"method":"searchByTag","tags":"#笨蛋"}
+res=requests.post(url=url,data=req)
+print(res.text.encode('utf-8').decode('unicode_escape'))
+
+req={"method":"getItemById","id":"2633"}
 res=requests.post(url=url,data=req)
 print(res.text.encode('utf-8').decode('unicode_escape'))
 
