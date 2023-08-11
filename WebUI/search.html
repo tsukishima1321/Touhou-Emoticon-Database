@@ -235,13 +235,40 @@
         window.open(encodeURI('./singlepic.html?'+'picid='+id))
     }
 
+    function like(img_likes){
+        var id =0;
+        for(const i of img_list){
+            if(img_likes == i["likes"]){
+                id = i["id"];
+            }
+        }
+        var httpRequest = new XMLHttpRequest();
+        httpRequest.open('POST', url, true);
+        httpRequest.setRequestHeader("Content-type", "application/json; charset=utf-8");
+        var obj = {
+            "method": "like",
+            "id": id
+        };
+        httpRequest.onload = function () {
+            var json = httpRequest.responseText;
+            var res = JSON.parse(json);
+            if(res["message"] == ":)"){
+                img_likes.innerHTML++;
+            }
+        }
+        httpRequest.send(JSON.stringify(obj));
+    }
+
     for(const item of imgs){
         var img = item.getElementsByTagName("img")[0];
         var img_des = item.getElementsByTagName("div")[0].getElementsByTagName("div")[0];
         var img_likes = item.getElementsByTagName("div")[0].getElementsByTagName("div")[1];
         img_list.push({"img":img,"des":img_des,"likes":img_likes,"id":0});
         img.addEventListener("click",function(ev){
-            openPic(this)
+            openPic(this);
+        });
+        img_likes.addEventListener("click",function(ev){
+            like(this);
         });
     }
 
