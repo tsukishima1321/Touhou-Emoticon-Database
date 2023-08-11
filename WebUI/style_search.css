@@ -1,0 +1,141 @@
+        .searchBar {
+            width: 80%;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 3fr 3fr 6fr 1fr;
+            grid-gap: 10px;
+        }
+
+        .box1 {
+            width: 100%;
+            height: 40px;
+            border: 2px solid red;
+            margin: auto;
+        }
+
+        .box2 {
+            width: 100%;
+            height: 40px;
+            border: 2px solid red;
+            margin: auto;
+        }
+
+        .box3 {
+            width: 100%;
+            height: 40px;
+            border: 2px solid red;
+            margin: auto;
+        }
+
+        .likes{
+            aspect-ratio: 1 / 1;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-image: url("thumb_up_line_icon.svg");
+        }
+
+        .button {
+            float: left;
+            width: 100%;
+            height: 40px;
+            color: white;
+            cursor: pointer;
+            background-color: red;
+            /*将按钮背景设置为红色，字体设置为白*/
+            border: none;
+            outline: none;
+            /*取消边框和外边框将按钮边框去掉*/
+        }
+
+        .input {
+            float: left;
+            width: 100%;
+            /*宽400*/
+            height: 38px;
+            /*高38（因为文本框内外边框要占用1像素所以总体高度减2，其他盒子同理）*/
+            outline: none;
+            border: none;
+            /*取消文本框内外边框*/
+        }
+
+        .img_wrapper {
+            padding-top: 50px;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+            grid-gap: 10px;
+        }
+
+        .img_item {
+            aspect-ratio: 1 / 1.2;
+            border: 1px solid #ccc;
+            background-color:thistle;
+            height: 100%;
+            width: 100%;
+        }
+
+        .img_des {
+            height: 20%;
+            width: 100%;
+            display: grid;
+            align-items:center;
+            grid-template-columns: 5fr 1fr;
+        }
+
+        img {
+            height: 80%;
+            width: 100%;
+            object-fit: contain;
+            cursor: pointer;
+        }
+
+        /*设置div样式的整体布局*/
+        .page-icon {
+            margin: 20px 0 0 0;
+            /*设置距离顶部20像素*/
+            font-size: 0;
+            /*修复行内元素之间空隙间隔*/
+            text-align: center;
+            /*设置内容居中显示*/
+        }
+
+        /*设置共有的的样式布局，主要是进行代码优化，提高运行效率*/
+        .page-icon a,
+        .page-last,
+        .page-next {
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            padding: 4px 10px 5px;
+            font-size: 14PX;
+            /*修复行内元素之间空隙间隔*/
+            margin-right: 10px;
+        }
+
+        .page-current {
+            color: #ff6600;
+            padding: 4px 10px 5px;
+            font-size: 14PX;
+            /*修复行内元素之间空隙间隔*/
+        }
+
+        .page-next i,
+        .page-last i {
+            cursor: pointer;
+            /*设置鼠标经过时的显示状态，这里设置的是显示状态为小手状态*/
+            display: inline-block;
+            /*设置显示的方式为行内块元素*/
+            width: 5px;
+            height: 9px;
+            /*获取图标的背景链接*/
+        }
+
+        .page-last i {
+            background-position: -80px -608px;
+            margin-right: 3px;
+        }
+
+        .page-next i {
+            background-position: -62px -608px;
+            margin-left: 3px;
+        }

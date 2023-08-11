@@ -113,9 +113,13 @@ req={"method":"searchByTag","tags":"#笨蛋"}
 res=requests.post(url=url,data=req)
 print(res.text.encode('utf-8').decode('unicode_escape'))
 
-req={"method":"getItemById","id":"2633"}
+req={"method":"getItemById","id":"1145"}
 res=requests.post(url=url,data=req)
 print(res.text.encode('utf-8').decode('unicode_escape'))
 
 
+
+req={"method":"editTag","id":"1145","character":"#火焰猫燐#阿燐"}
+res=requests.post(url=url,data=req)
+print(res.text.encode('utf-8').decode('unicode_escape'))
 

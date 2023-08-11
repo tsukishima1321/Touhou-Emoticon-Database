@@ -8,9 +8,6 @@ from . import views
 urlpatterns = [
     re_path('^api/$',views.api),
     re_path('^random/$', views.random),
-    re_path('^randoms/$', views.randoms),
-    re_path('^search/$', views.search),
-    re_path('.',views.singlePic),
 ]
 
 
