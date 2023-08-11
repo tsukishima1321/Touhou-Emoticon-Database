@@ -19,6 +19,13 @@
         <div class="searchButton">
             <input type="button" value="搜索" class="button" onclick="search()">
         </div>
+        <select class="order">
+                <option>随机</option>
+                <option>id升序</option>
+                <option>id降序</option>
+                <option>点赞数降序</option>
+                <option>点赞数升序</option>
+        </select>
     </div>
     <div class='img_wrapper'>
         <div class='img_item'>
@@ -291,6 +298,19 @@
             pagenum = 1;
             document.getElementById("pageCurrent").innerHTML = 1;
         }
+
+        var order = document.getElementsByClassName("order")[0][document.getElementsByClassName("order")[0].selectedIndex].innerHTML;
+        if(order == "随机"){
+            order = "random"
+        }else if(order == "id升序"){
+            order = "id"
+        }else if(order == "id降序"){
+            order = "id_r"
+        }else if(order == "点赞数升序"){
+            order = "likes"
+        }else if(order == "点赞数降序"){
+            order = "likes_r"
+        }
         var httpRequest = new XMLHttpRequest();
         httpRequest.open('POST', url, true);
         httpRequest.setRequestHeader("Content-type", "application/json; charset=utf-8");
@@ -300,6 +320,7 @@
             "character": character,
             "tags": tags,
             "page": pagenum,
+            "order": order,
         };
         httpRequest.onload = function () {
             var json = httpRequest.responseText;
