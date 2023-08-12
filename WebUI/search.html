@@ -3,6 +3,8 @@
 <head>
     <link rel="stylesheet" type="text/css" href="style_search.css">
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content="user-scalable=no" />
 </head>
 
 <body>
@@ -20,16 +22,16 @@
             <input type="button" value="搜索" class="button" onclick="search()">
         </div>
         <select class="order">
-                <option>随机</option>
-                <option>id升序</option>
-                <option>id降序</option>
-                <option>点赞数降序</option>
-                <option>点赞数升序</option>
+            <option>id升序</option>
+            <option>id降序</option>
+            <option>点赞数降序</option>
+            <option>点赞数升序</option>
+            <option>随机</option>
         </select>
     </div>
     <div class='img_wrapper'>
         <div class='img_item'>
-            <img class="main" src="" referrerPolicy="no-referrer" >
+            <img class="main" src="" referrerPolicy="no-referrer">
             <div class="img_des">
                 <div class="imd_des_tex">tags:</div>
                 <div class="likes">
@@ -220,25 +222,26 @@
 </html>
 
 <script>
+
     var url = "http://[240e:38b:8d7a:5100:102e:e0da:fd49:ba8]:1096/api/";
 
     var img_list = [];
     var imgs = document.getElementsByClassName("img_item")
 
-    function openPic(img){
+    function openPic(img) {
         var id = 0;
-        for(const i of img_list){
-            if(img == i["img"]){
+        for (const i of img_list) {
+            if (img == i["img"]) {
                 id = i["id"];
             }
         }
-        window.open(encodeURI('./singlepic.html?'+'picid='+id))
+        window.open(encodeURI('./singlepic.html?' + 'picid=' + id))
     }
 
-    function like(img_likes){
-        var id =0;
-        for(const i of img_list){
-            if(img_likes == i["likes"]){
+    function like(img_likes) {
+        var id = 0;
+        for (const i of img_list) {
+            if (img_likes == i["likes"]) {
                 id = i["id"];
             }
         }
@@ -252,22 +255,22 @@
         httpRequest.onload = function () {
             var json = httpRequest.responseText;
             var res = JSON.parse(json);
-            if(res["message"] == ":)"){
+            if (res["message"] == ":)") {
                 img_likes.innerHTML++;
             }
         }
         httpRequest.send(JSON.stringify(obj));
     }
 
-    for(const item of imgs){
+    for (const item of imgs) {
         var img = item.getElementsByTagName("img")[0];
         var img_des = item.getElementsByTagName("div")[0].getElementsByTagName("div")[0];
         var img_likes = item.getElementsByTagName("div")[0].getElementsByTagName("div")[1];
-        img_list.push({"img":img,"des":img_des,"likes":img_likes,"id":0});
-        img.addEventListener("click",function(ev){
+        img_list.push({ "img": img, "des": img_des, "likes": img_likes, "id": 0 });
+        img.addEventListener("click", function (ev) {
             openPic(this);
         });
-        img_likes.addEventListener("click",function(ev){
+        img_likes.addEventListener("click", function (ev) {
             like(this);
         });
     }
@@ -287,19 +290,18 @@
             var res = JSON.parse(json);
             img["img"].src = res['url'];
             var tags_text = "";
-            if(res['author'] != 0 && res['author'] != null){
+            if (res['author'] != 0 && res['author'] != null) {
                 tags_text += res['author'];
             }
-            if(res['character'] != 0 && res['character'] != null){
+            if (res['character'] != 0 && res['character'] != null) {
                 tags_text += res['character'];
             }
-            if(res['tags'] != 0 && res['tags'] != null){
+            if (res['tags'] != 0 && res['tags'] != null) {
                 tags_text += res['tags'];
             }
-            img["des"].innerHTML = tags_text.substr(0,30);
+            img["des"].innerHTML = tags_text.substr(0, 30);
             img["likes"].innerHTML = res['likes'];
             img["id"] = id;
-            
         }
         httpRequest.send(JSON.stringify(obj));
     }
@@ -309,33 +311,33 @@
     var tags = "";
 
     function search() {
-        
-        if(author != document.getElementById("input1").value.replaceAll(" ","#")){
-            author = document.getElementById("input1").value.replaceAll(" ","#");
+
+        if (author != document.getElementById("input1").value.replaceAll(" ", "#")) {
+            author = document.getElementById("input1").value.replaceAll(" ", "#");
             pagenum = 1;
             document.getElementById("pageCurrent").innerHTML = 1;
         }
-        if(character != document.getElementById("input2").value.replaceAll(" ","#")){
-            character = document.getElementById("input2").value.replaceAll(" ","#");
+        if (character != document.getElementById("input2").value.replaceAll(" ", "#")) {
+            character = document.getElementById("input2").value.replaceAll(" ", "#");
             pagenum = 1;
             document.getElementById("pageCurrent").innerHTML = 1;
         }
-        if(tags != document.getElementById("input3").value.replaceAll(" ","#")){
-            tags = document.getElementById("input3").value.replaceAll(" ","#");
+        if (tags != document.getElementById("input3").value.replaceAll(" ", "#")) {
+            tags = document.getElementById("input3").value.replaceAll(" ", "#");
             pagenum = 1;
             document.getElementById("pageCurrent").innerHTML = 1;
         }
 
         var order = document.getElementsByClassName("order")[0][document.getElementsByClassName("order")[0].selectedIndex].innerHTML;
-        if(order == "随机"){
+        if (order == "随机") {
             order = "random"
-        }else if(order == "id升序"){
+        } else if (order == "id升序") {
             order = "id"
-        }else if(order == "id降序"){
+        } else if (order == "id降序") {
             order = "id_r"
-        }else if(order == "点赞数升序"){
+        } else if (order == "点赞数升序") {
             order = "likes"
-        }else if(order == "点赞数降序"){
+        } else if (order == "点赞数降序") {
             order = "likes_r"
         }
         var httpRequest = new XMLHttpRequest();
@@ -353,7 +355,7 @@
             var json = httpRequest.responseText;
             var res = JSON.parse(json);
             var ids = res["ids"];
-            for (const img of img_list){
+            for (const img of img_list) {
                 img["img"].src = "";
             }
             for (i = 0; i < ids.length; i++) {
@@ -363,14 +365,14 @@
         httpRequest.send(JSON.stringify(obj));
     }
 
-    function nextPage(){
+    function nextPage() {
         pagenum++;
         document.getElementById("pageCurrent").innerHTML++;
         search();
     }
 
-    function lastPage(){
-        if(pagenum > 1){
+    function lastPage() {
+        if (pagenum > 1) {
             pagenum--;
             document.getElementById("pageCurrent").innerHTML--;
             search();

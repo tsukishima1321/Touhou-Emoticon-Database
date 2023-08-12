@@ -5,7 +5,9 @@ from . import db
 from . import logger
 
 base_path=["http://i0.hdslb.com/bfs/article/",
-           "https://img1.imgtp.com/",]
+           "https://img1.imgtp.com/",
+           "http://rz7wkpffc.bkt.clouddn.com/",]
+
 
 def std_item_res(item):
     return JsonResponse({"id":item.id, 'url':base_path[item.source] + item.name, 'author':item.author, 'character':item.character, 'tags':item.tags, 'likes':item.likes})

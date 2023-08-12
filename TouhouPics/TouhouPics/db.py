@@ -189,9 +189,9 @@ def search_ids_by_tag(dic:dict):
             qset = qset.filter(Q(tags__contains=tag)|Q(character__contains=tag)|Q(author__contains=tag))
     order = dic.get("order")
     if order == "likes":
-        qset = qset.order_by("likes")
+        qset = qset.order_by("likes","id")
     elif order == "likes_r":
-        qset = qset.order_by("-likes")
+        qset = qset.order_by("-likes","id")
     elif order == "random":
         qset = qset.order_by("?")
     elif order == "id_r":

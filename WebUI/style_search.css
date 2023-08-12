@@ -1,3 +1,22 @@
+        
+@media screen and (orientation:landscape) {
+    .img_wrapper {
+        padding-top: 50px;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+        grid-gap: 10px;
+    }
+}
+
+@media screen and (orientation:portrait) {
+    .img_wrapper {
+        padding-top: 50px;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-gap: 10px;
+    }
+}
+
         .searchBar {
             width: 80%;
             margin: 0 auto;
@@ -70,12 +89,7 @@
             /*取消文本框内外边框*/
         }
 
-        .img_wrapper {
-            padding-top: 50px;
-            display: grid;
-            grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-            grid-gap: 10px;
-        }
+
 
         .img_item {
             aspect-ratio: 1 / 1.2;

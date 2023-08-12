@@ -109,17 +109,21 @@ req={"method":"delete","id":"4450","password":"229028"}
 res=requests.post(url=url,data=req)
 print(res.text.encode('utf-8').decode('unicode_escape'))'''
 
-req={"method":"searchByTag","tags":"#笨蛋"}
+req={"method":"searchByTag","order":"likes_r"}
 res=requests.post(url=url,data=req)
 print(res.text.encode('utf-8').decode('unicode_escape'))
 
-req={"method":"getItemById","id":"1145"}
+req={"method":"searchByTag","order":"likes_r","page":"2"}
+res=requests.post(url=url,data=req)
+print(res.text.encode('utf-8').decode('unicode_escape'))
+
+req={"method":"searchByTag","order":"likes_r","page":"3"}
+res=requests.post(url=url,data=req)
+print(res.text.encode('utf-8').decode('unicode_escape'))
+
+req={"method":"searchByTag","order":"likes_r","page":"4"}
 res=requests.post(url=url,data=req)
 print(res.text.encode('utf-8').decode('unicode_escape'))
 
 
-
-req={"method":"editTag","id":"1145","character":"#火焰猫燐#阿燐"}
-res=requests.post(url=url,data=req)
-print(res.text.encode('utf-8').decode('unicode_escape'))
 
