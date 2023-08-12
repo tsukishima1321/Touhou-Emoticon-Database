@@ -1,0 +1,103 @@
+    .box {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto;
+        margin-top: 10%;
+        width: 80%;
+    }
+    
+    .img_detail {
+        display:grid;
+        grid-template-columns: 1fr 1fr;
+        align-items: center;
+    }
+
+    .main {
+        height: 100%;
+        width: 100%;
+        object-fit: contain;
+    }
+
+    .tag_item li {
+        float: left;
+        margin-left: 20px;
+    }
+
+    .tag_item {
+        display: flex;
+        align-items: center;
+        margin-left: 0; padding-left: 0;
+    }
+
+    .tag_show {
+        display:grid;
+        grid-template-columns: 1fr;
+    }
+
+    .character .taggs .author {
+        list-style-type: none;
+    }
+
+    .add_button , .add_commit ,.edit_button , .edit_commit , .cancel{
+        list-style-type: none;
+        -webkit-transition-duration: 0.2s;
+        transition-duration: 0.2s;
+        padding: 4px 10px;
+        text-align: center;
+        background-color: white;
+        color: black;
+        border-radius:5px;
+        cursor: pointer;
+    }
+
+    .add_button , .add_commit {
+        border: 2px solid #4CAF50;
+    }
+
+    .add_button:hover , .add_commit:hover {
+        background-color: #4CAF50;
+        color: white;
+    }
+
+    .edit_button , .edit_commit {
+        border: 2px solid #d4d120;
+    }
+
+    .cancel_hide{
+        display: none;
+    }
+
+    .cancel {
+        border: 2px solid #8f0000;
+    }
+
+    .cancel:hover {
+        background-color: #8f0000;
+    }
+
+    .edit_button:hover , .edit_commit:hover {
+        background-color: #d4d120;
+        color: white;
+    }
+
+    .tag_edit_hide {
+        display: none;
+    }
+
+    .tag_edit {
+        margin-top: 10px;
+    }
+
+    .edit_commit_hide {
+        display:none;
+    }
+
+    .likes {
+        display: grid;
+        margin-top: 20px;
+        height: 40px;
+        width: 40px;
+        grid-template-columns: 1fr 1fr;
+        align-items: center;
+    }

@@ -54,6 +54,7 @@ def add_tag(dic:dict):
         pic = pictures.objects.get(id=dic.get("id"))
     except pictures.DoesNotExist:
         return -3
+    print(dic)
     author = dic.get("author")
     character = dic.get("character")
     tag = dic.get("tags")
