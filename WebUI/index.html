@@ -49,6 +49,25 @@
         window.open(decodeURI('./singlepic.html?' + 'picid=' + "random"));
     }
     function random_20(){
-        window.open(decodeURI('./search.html?' + 'picid=' + "random"))
+        window.open(decodeURI('./search.html?' + 'data=' + "random"))
+    }
+    function search(){
+        var author = document.getElementById("input1").value.replaceAll(" ", "#");
+        var character = document.getElementById("input2").value.replaceAll(" ", "#");
+        var tags = document.getElementById("input3").value.replaceAll(" ", "#");
+        var order = document.getElementsByClassName("order")[0][document.getElementsByClassName("order")[0].selectedIndex].innerHTML;
+        if (order == "随机") {
+            order = 4;
+        } else if (order == "id升序") {
+            order = 0;
+        } else if (order == "id降序") {
+            order = 1;
+        } else if (order == "点赞数升序") {
+            order = 3;
+        } else if (order == "点赞数降序") {
+            order = 2;
+        }
+        var data = author+";"+character+";"+tags+";"+order;
+        window.open(decodeURI('./search.html?' + 'data=' + data));
     }
 </script>

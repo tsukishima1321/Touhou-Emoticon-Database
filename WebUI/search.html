@@ -228,6 +228,10 @@
     var img_list = [];
     var imgs = document.getElementsByClassName("img_item")
 
+    var author = "";
+    var character = "";
+    var tags = "";
+
     function openPic(img) {
         var id = 0;
         for (const i of img_list) {
@@ -266,6 +270,14 @@
     data = data.slice(data.indexOf("=") + 1)
     if (data == "random") {
         document.getElementsByClassName("order")[0].selectedIndex = 4;
+        search();
+    } else if (data != "") {
+        data = data.split(";");
+        console.log(data);
+        document.getElementById("input1").value = data[0];
+        document.getElementById("input2").value = data[1];
+        document.getElementById("input3").value = data[2];
+        document.getElementsByClassName("order")[0].selectedIndex = data[3];
         search();
     }
 
@@ -312,10 +324,6 @@
         }
         httpRequest.send(JSON.stringify(obj));
     }
-
-    var author = "";
-    var character = "";
-    var tags = "";
 
     function search() {
 
