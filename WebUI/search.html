@@ -262,6 +262,13 @@
         httpRequest.send(JSON.stringify(obj));
     }
 
+    var data = decodeURI(document.URL)
+    data = data.slice(data.indexOf("=") + 1)
+    if (data == "random") {
+        document.getElementsByClassName("order")[0].selectedIndex = 4;
+        search();
+    }
+
     for (const item of imgs) {
         var img = item.getElementsByTagName("img")[0];
         var img_des = item.getElementsByTagName("div")[0].getElementsByTagName("div")[0];

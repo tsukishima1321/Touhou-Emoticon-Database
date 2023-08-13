@@ -10,7 +10,7 @@
 <body>
     <div class="box">
         <div class="img_detail">
-            <img src="" class="main">
+            <img src="" class="main" referrerPolicy="no-referrer">
             <ul>
 
                 <li class="author">
@@ -79,6 +79,7 @@
 
     contents_text = ["", "", ""]
 
+    console.log(picid);
     getImg(picid);
 
     function clear() {
@@ -121,10 +122,14 @@
             "method": "getItemById",
             "id": id
         };
+        if(id == "random"){
+            obj["method"] = "getRandomItem";
+        }
         httpRequest.onload = function () {
             var json = httpRequest.responseText;
             var res = JSON.parse(json);
             img.src = res['url'];
+            picid = res["id"];
             likes.innerHTML = res['likes'];
             for (let i = 0; i < 3; i++) {
                 var text = res[names[i]];

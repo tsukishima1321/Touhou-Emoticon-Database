@@ -1,0 +1,54 @@
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="index.css">
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width" />
+        <meta name="viewport" content="user-scalable=no" />
+    </head>
+    <body>
+        <h1>东方表情包数据库</h1>
+        <p>description</p>
+        <h2>你可以：</h2>
+        <div class="random">
+            <div class="rd" onclick="random()">
+                抽卡！
+            </div>
+            <div class="rd_20" onclick="random_20()">
+                十连！
+            </div>
+
+        </div>
+        <h2>或者：</h2>
+
+        <div class="searchBar">
+            <div class="box1">
+                <input id="input1" type="text" class="input" placeholder="请输入作者">
+            </div>
+            <div class="box2">
+                <input id="input2" type="text" class="input" placeholder="请输入角色">
+            </div>
+            <div class="box3">
+                <input id="input3" type="text" class="input" placeholder="请输入其他tag">
+            </div>
+            <div class="searchButton">
+                <input type="button" value="搜索" class="button" onclick="search()">
+            </div>
+            <select class="order">
+                <option>id升序</option>
+                <option>id降序</option>
+                <option>点赞数降序</option>
+                <option>点赞数升序</option>
+                <option>随机</option>
+            </select>
+        </div>
+    </body>
+</html>
+
+<script>
+    function random(){
+        window.open(decodeURI('./singlepic.html?' + 'picid=' + "random"));
+    }
+    function random_20(){
+        window.open(decodeURI('./search.html?' + 'picid=' + "random"))
+    }
+</script>
