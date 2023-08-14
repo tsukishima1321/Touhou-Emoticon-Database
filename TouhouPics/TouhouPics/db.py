@@ -42,12 +42,12 @@ def get_item_by_id(id_:int):
 def if_hash_exist(h:str):
     try:
         pic = pictures.objects.get(md5=h)
-        return 1
+        return pic
     except pictures.DoesNotExist:
         return -1
     except pictures.MultipleObjectsReturned as e:
         logger.errorLog(e,"Multiple Objects Returned With Same Hash: "+h)
-        return 1
+        return pictures.objects.all(md5=h)[0]
     
 def add_tag(dic:dict):
     try:
@@ -238,7 +238,7 @@ def upload(dic:dict):
         return -1
     md5_ = dic.get("md5")
     if md5_ == None:
-        md5_ = "from_imgTP"
+        md5_ = "default"
     else:
         if if_hash_exist(md5_) == 1:
             try:
@@ -259,7 +259,7 @@ def upload(dic:dict):
     if tags_ == None:
         tags_ == ""
     try:
-        pictures.objects.create(name=name_,md5=md5_,author=author_,character=character_,tags=tags_,source=1,likes=0)
+        pictures.objects.create(name=name_,md5=md5_,author=author_,character=character_,tags=tags_,source=0,likes=0)
     except Exception as e:
         logger.errorLog(e)
         return -2

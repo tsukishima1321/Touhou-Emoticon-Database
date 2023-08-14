@@ -41,6 +41,10 @@
                 <option>随机</option>
             </select>
         </div>
+
+        <h2>或者：</h2>
+
+        <div class="upload" onclick="upload()">上传图片</div>
     </body>
 </html>
 
@@ -69,5 +73,8 @@
         }
         var data = author+";"+character+";"+tags+";"+order;
         window.open(decodeURI('./search.html?' + 'data=' + data));
+    }
+    function upload(){
+        window.open(decodeURI('./upload.html'));
     }
 </script>

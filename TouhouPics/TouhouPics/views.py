@@ -3,11 +3,12 @@ import json
 from django.http import HttpResponse,JsonResponse
 from . import db
 from . import logger
+from qiniu import Auth
 
-base_path=["http://i0.hdslb.com/bfs/article/",
-           "https://img1.imgtp.com/",
-           "http://rz7wkpffc.bkt.clouddn.com/",]
+base_path=["http://rz7wkpffc.bkt.clouddn.com/",
+           "http://i0.hdslb.com/bfs/article/",]
 
+server_url="http://[240e:38b:8d7a:5100:102e:e0da:fd49:ba8]/api/"
 
 def std_item_res(item):
     return JsonResponse({"id":item.id, 'url':base_path[item.source] + item.name, 'author':item.author, 'character':item.character, 'tags':item.tags, 'likes':item.likes})
@@ -59,11 +60,13 @@ def api(request):
     
     elif method == "ifExist":
         dbres = db.if_hash_exist(req.get("hash"))
-        if dbres == 1:
-            return JsonResponse({"exist":"true"})
-        elif dbres == -1:
+        if dbres == -1:
             return JsonResponse({"exist":"false"})
-        return JsonResponse({"message":"error"})
+        else:
+            try:
+                return std_item_res(dbres)
+            except:
+                return JsonResponse({"message":"error"})
     
     elif method == "addTag":
         dbres = db.add_tag(req)
@@ -133,14 +136,30 @@ def api(request):
         else:
             return JsonResponse({"message":"error"})
         
+    elif method == "getUploadToken":
+        keys = open("/home/anthony/qiniuKeys.txt","r")
+        keys = keys.read().splitlines()
+        q = Auth(keys[0],keys[1])
+        bucket_name = 'touhou-emoticon'
+        name = req.get("name")
+        dbres = db.get_item_by_name(name)
+        if dbres != -1:
+            return std_item_res(dbres)
+        policy = {
+         #'callbackUrl':server_url,
+         #'callbackBody':'filename=$(fname)',
+        }
+        logger.uploadStartLog(name)
+        token = q.upload_token(bucket_name, name, 3600, policy)
+        return JsonResponse({"key":token})
+    
     elif method == "upload":
         dbres = db.upload(req)
-        if dbres == -1:
-            return JsonResponse({"message":"Invalid Text"})
-        elif dbres == -2:
+        if dbres == -2:
             return JsonResponse({"message":"error"})
+        logger.uploadLog(req["name"],req["md5"])
         return std_item_res(dbres)
-    
+
     elif method == "delete":
         dbres = db.delete(req)
         if dbres == -1:

@@ -97,8 +97,3 @@ order从"random"、"id"、"likes"中选择, 表示按随机、id、点赞数升�
 **request:** id_main, ids(a list of id similar to the main picture)  
 **response:** message ":\)" / "Not Found" 
 
-#### **upload**  
-> 向数据库添加图片  
-**request:** name, (optional)anthor, (optional)character, (optional)tags, (optional)md5, source 
-**response:** stditem / message: "error"  
-

@@ -1,0 +1,118 @@
+<html>
+
+<head>
+    <link rel="stylesheet" type="text/css" href="style_upload.css">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content="user-scalable=no" />
+</head>
+
+<body>
+    <input type="file" id="upload" onchange="fileSelected()">
+    <input type="button" value="确认上传" onclick="upload()">
+    <img class="main">
+    <a href="" class="hide">点击前往图片详情页</a>
+</body>
+
+</html>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/qiniu-js/3.4.1/qiniu.min.js"></script>
+<script type="text/javascript" src="md5.js"></script>
+<script>
+    var url = "http://[240e:38b:8d7a:5100:102e:e0da:fd49:ba8]:1096/api/";
+
+    const input = document.querySelector("#upload");
+    const img = document.getElementsByClassName("main")[0];
+
+    function fileSelected() {
+        const file = input.files[0];
+        console.log(file);
+    }
+
+    function upload() {
+        const file = input.files[0];
+        if (file == undefined) {
+            return;
+        }
+
+        const key = file["name"];
+        if (key.lenth > 50) {
+            alert("文件名过长");
+            return;
+        }
+
+        const fileReader = new FileReader()
+        fileReader.readAsBinaryString(file);
+        fileReader.onload = e => {
+            const md5 = SparkMD5.hashBinary(e.target.result);
+            var httpRequest1 = new XMLHttpRequest();
+            httpRequest1.open('POST', url, true);
+            httpRequest1.setRequestHeader("Content-type", "application/json; charset=utf-8");
+            var obj = {
+                "method": "ifExist",
+                "hash": md5,
+            };
+            httpRequest1.onload = function () {
+                var json = httpRequest1.responseText;
+                var res = JSON.parse(json);
+                if (res["id"] != null) {
+                    document.getElementsByTagName("a")[0].href = "singlepic.html?picid=" + res["id"];
+                    document.getElementsByTagName("a")[0].className = "href";
+                    img.src = res['url'];
+                    alert("图片已存在，点击链接前往。");
+                    return;
+                } else {
+                    var token = "";
+                    var httpRequest2 = new XMLHttpRequest();
+                    httpRequest2.open('POST', url, true);
+                    httpRequest2.setRequestHeader("Content-type", "application/json; charset=utf-8");
+                    var obj = {
+                        "method": "getUploadToken",
+                        "name": key,
+                    };
+                    httpRequest2.onload = function () {
+                        var json = httpRequest2.responseText;
+                        var res = JSON.parse(json);
+                        if (res["id"] != null) {
+                            document.getElementsByTagName("a")[0].href = "singlepic.html?picid=" + res["id"];
+                            document.getElementsByTagName("a")[0].className = "href";
+                            img.src = res['url'];
+                            alert("文件名已存在,如果以下图片不是您要上传的，请重命名本地文件后再上传。");
+                            return;
+                        } else {
+                            token = res["key"];
+                            const observable = qiniu.upload(file, key, token);
+                            const subscription = observable.subscribe(uploadComplete(key,md5));
+                        }
+                    }
+                    httpRequest2.send(JSON.stringify(obj));
+                }
+            }
+            httpRequest1.send(JSON.stringify(obj));
+        }
+    }
+
+    function uploadComplete(name,hash) {
+        var httpRequest = new XMLHttpRequest();
+        httpRequest.open('POST', url, true);
+        httpRequest.setRequestHeader("Content-type", "application/json; charset=utf-8");
+        var obj = {
+            "method": "upload",
+            "name": name,
+            "md5": hash,
+        };
+        httpRequest.onload = function () {
+            var json = httpRequest.responseText;
+            var res = JSON.parse(json);
+            if (res["id"] != null) {
+                document.getElementsByTagName("a")[0].href = "singlepic.html?picid=" + res["id"];
+                document.getElementsByTagName("a")[0].className = "href";
+                img.src = res['url'];
+                return;
+            }
+            alert("上传成功,稍等后图片才能成功显示");
+        }
+        httpRequest.send(JSON.stringify(obj));
+    }
+
+</script>

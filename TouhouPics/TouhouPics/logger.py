@@ -21,3 +21,17 @@ def similarLog(id_main:int,url:str,ids,urls):
             f.write("    "+str(ids[i])+"  "+urls[i]+"\n")
         f.write("\n")
         f.close()
+
+def uploadStartLog(name:str):
+       f = open("upload.txt","a")
+       f.write(time.asctime( time.localtime(time.time()))+"\n")
+       f.write(name+"\n")
+       f.write("上传开始\n")
+       f.close()
+
+def uploadLog(name:str,md5:str):
+       f = open("upload.txt","a")
+       f.write(time.asctime( time.localtime(time.time()))+"\n")
+       f.write(name+"  "+md5+"\n")
+       f.write("上传成功\n")
+       f.close()

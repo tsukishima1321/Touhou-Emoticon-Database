@@ -22,7 +22,7 @@
 
 }
 
-        h1 , h2 , p , .random {
+        h1 , h2 , p , .random , .upload{
             text-align: center;
             align-items: center;
         }
@@ -34,7 +34,7 @@
             grid-template-columns: 1fr 1fr;
         }
 
-        .rd , .rd_20 {
+        .rd , .rd_20 , .upload{
             list-style-type: none;
             -webkit-transition-duration: 0.2s;
             transition-duration: 0.2s;
@@ -56,6 +56,11 @@
             color: white;
         }
 
+        .upload:hover {
+            background-color: #c4e91f;
+            color: white;
+        }
+
         .rd {
             margin-right: 10px;
             border: 2px solid #4CAF50;
@@ -63,6 +68,12 @@
 
         .rd_20 {
             border: 2px solid #d5e91f;
+        }
+
+        .upload {
+            margin:0 auto;
+            width: 20%;
+            border: 2px solid #c4e91f;
         }
 
         .box1 {
