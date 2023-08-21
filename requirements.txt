@@ -1,0 +1,43 @@
+name: webserver
+channels:
+  - defaults
+dependencies:
+  - _libgcc_mutex=0.1=main
+  - asgiref=3.4.1=pyhd3eb1b0_0
+  - asn1crypto=1.4.0=py_0
+  - ca-certificates=2023.05.30=h06a4308_0
+  - certifi=2021.5.30=py36h06a4308_0
+  - cffi=1.14.6=py36h400218f_0
+  - cryptography=2.3.1=py36hc365091_0
+  - django=3.2=pyhd3eb1b0_0
+  - idna=3.3=pyhd3eb1b0_0
+  - krb5=1.14.2=h56d4222_4
+  - libffi=3.3=he6710b0_2
+  - libgcc-ng=9.1.0=hdf63c60_0
+  - libpq=9.6.6=h4e02ad2_0
+  - libstdcxx-ng=9.1.0=hdf63c60_0
+  - openssl=1.0.2u=h7b6447c_0
+  - pip=21.2.2=py36h06a4308_0
+  - psycopg2=2.7.4=py36hb7f436b_0
+  - pycparser=2.21=pyhd3eb1b0_0
+  - pymysql=1.0.2=py36h06a4308_1
+  - python=3.6.0=0
+  - pytz=2021.3=pyhd3eb1b0_0
+  - readline=6.2=2
+  - setuptools=58.0.4=py36h06a4308_0
+  - six=1.16.0=pyhd3eb1b0_1
+  - sqlite=3.13.0=0
+  - sqlparse=0.4.1=py_0
+  - tk=8.5.18=0
+  - typing_extensions=4.1.1=pyh06a4308_0
+  - wheel=0.37.1=pyhd3eb1b0_0
+  - xz=5.2.5=h7f8727e_1
+  - zlib=1.2.12=h7f8727e_2
+  - pip:
+    - charset-normalizer==2.0.12
+    - django-cors-headers==3.10.1
+    - qiniu==7.10.0
+    - requests==2.27.1
+    - urllib3==1.26.16
+prefix: /home/anthony/anaconda3/envs/webserver
+
