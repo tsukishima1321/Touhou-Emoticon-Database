@@ -332,21 +332,11 @@
 
     function search() {
 
-        if (author != document.getElementById("input1").value.replaceAll(" ", "#")) {
-            author = document.getElementById("input1").value.replaceAll(" ", "#");
-            pagenum = 1;
-            document.getElementById("pageCurrent").innerHTML = 1;
-        }
-        if (character != document.getElementById("input2").value.replaceAll(" ", "#")) {
-            character = document.getElementById("input2").value.replaceAll(" ", "#");
-            pagenum = 1;
-            document.getElementById("pageCurrent").innerHTML = 1;
-        }
-        if (tags != document.getElementById("input3").value.replaceAll(" ", "#")) {
-            tags = document.getElementById("input3").value.replaceAll(" ", "#");
-            pagenum = 1;
-            document.getElementById("pageCurrent").innerHTML = 1;
-        }
+        author = document.getElementById("input1").value.replaceAll(" ", "#");
+        character = document.getElementById("input2").value.replaceAll(" ", "#");
+        tags = document.getElementById("input3").value.replaceAll(" ", "#");
+        pagenum = 1;
+        document.getElementById("pageCurrent").innerHTML = 1;
 
         var order = document.getElementsByClassName("order")[0][document.getElementsByClassName("order")[0].selectedIndex].innerHTML;
         if (order == "随机") {
