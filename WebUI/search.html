@@ -233,6 +233,7 @@
     var author = "";
     var character = "";
     var tags = "";
+    var order = "";
 
     function openPic(img) {
         var id = 0;
@@ -332,23 +333,38 @@
 
     function search() {
 
-        author = document.getElementById("input1").value.replaceAll(" ", "#");
-        character = document.getElementById("input2").value.replaceAll(" ", "#");
-        tags = document.getElementById("input3").value.replaceAll(" ", "#");
-        pagenum = 1;
-        document.getElementById("pageCurrent").innerHTML = 1;
+        if (author != document.getElementById("input1").value.replaceAll(" ", "#")) {
+            author = document.getElementById("input1").value.replaceAll(" ", "#");
+            pagenum = 1;
+            document.getElementById("pageCurrent").innerHTML = 1;
+        }
+        if (character != document.getElementById("input2").value.replaceAll(" ", "#")) {
+            character = document.getElementById("input2").value.replaceAll(" ", "#");
+            pagenum = 1;
+            document.getElementById("pageCurrent").innerHTML = 1;
+        }
+        if (tags != document.getElementById("input3").value.replaceAll(" ", "#")) {
+            tags = document.getElementById("input3").value.replaceAll(" ", "#");
+            pagenum = 1;
+            document.getElementById("pageCurrent").innerHTML = 1;
+        }
 
-        var order = document.getElementsByClassName("order")[0][document.getElementsByClassName("order")[0].selectedIndex].innerHTML;
+        if(order != document.getElementsByClassName("order")[0][document.getElementsByClassName("order")[0].selectedIndex].innerHTML){
+            order = document.getElementsByClassName("order")[0][document.getElementsByClassName("order")[0].selectedIndex].innerHTML;
+            agenum = 1;
+            document.getElementById("pageCurrent").innerHTML = 1;
+        }
+        
         if (order == "随机") {
-            order = "random"
+            order_ = "random"
         } else if (order == "id升序") {
-            order = "id"
+            order_ = "id"
         } else if (order == "id降序") {
-            order = "id_r"
+            order_ = "id_r"
         } else if (order == "点赞数升序") {
-            order = "likes"
+            order_ = "likes"
         } else if (order == "点赞数降序") {
-            order = "likes_r"
+            order_ = "likes_r"
         }
         var httpRequest = new XMLHttpRequest();
         httpRequest.open('POST', url, true);
@@ -359,7 +375,7 @@
             "character": character,
             "tags": tags,
             "page": pagenum,
-            "order": order,
+            "order": order_,
         };
         httpRequest.onload = function () {
             var json = httpRequest.responseText;
