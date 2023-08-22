@@ -8,213 +8,215 @@
 </head>
 
 <body>
-    <div class="searchBar">
-        <div class="box1">
-            <input id="input1" type="text" class="input" placeholder="请输入作者">
+    <div class="body">
+        <div class="searchBar">
+            <div class="box1">
+                <input id="input1" type="text" class="input" placeholder="请输入作者">
+            </div>
+            <div class="box2">
+                <input id="input2" type="text" class="input" placeholder="请输入角色">
+            </div>
+            <div class="box3">
+                <input id="input3" type="text" class="input" placeholder="请输入其他tag">
+            </div>
+            <div class="searchButton">
+                <input type="button" value="搜索" class="button" onclick="search()">
+            </div>
+            <select class="order">
+                <option>id升序</option>
+                <option>id降序</option>
+                <option>点赞数降序</option>
+                <option>点赞数升序</option>
+                <option>随机</option>
+            </select>
         </div>
-        <div class="box2">
-            <input id="input2" type="text" class="input" placeholder="请输入角色">
-        </div>
-        <div class="box3">
-            <input id="input3" type="text" class="input" placeholder="请输入其他tag">
-        </div>
-        <div class="searchButton">
-            <input type="button" value="搜索" class="button" onclick="search()">
-        </div>
-        <select class="order">
-            <option>id升序</option>
-            <option>id降序</option>
-            <option>点赞数降序</option>
-            <option>点赞数升序</option>
-            <option>随机</option>
-        </select>
-    </div>
-    <div class='img_wrapper'>
-        <div class='img_item'>
-            <img class="main" src="" referrerPolicy="no-referrer">
-            <div class="img_des">
-                <div class="imd_des_tex">tags:</div>
-                <div class="likes">
-                    0
+        <div class='img_wrapper'>
+            <div class='img_item'>
+                <img class="main" src="" referrerPolicy="no-referrer">
+                <div class="img_des">
+                    <div class="imd_des_tex">tags:</div>
+                    <div class="likes">
+                        0
+                    </div>
+                </div>
+            </div>
+            <div class='img_item'>
+                <img class="main" src="" referrerPolicy="no-referrer">
+                <div class="img_des">
+                    <div class="imd_des_tex">tags:</div>
+                    <div class="likes">
+                        0
+                    </div>
+                </div>
+            </div>
+            <div class='img_item'>
+                <img class="main" src="" referrerPolicy="no-referrer">
+                <div class="img_des">
+                    <div class="imd_des_tex">tags:</div>
+                    <div class="likes">
+                        0
+                    </div>
+                </div>
+            </div>
+            <div class='img_item'>
+                <img class="main" src="" referrerPolicy="no-referrer">
+                <div class="img_des">
+                    <div class="imd_des_tex">tags:</div>
+                    <div class="likes">
+                        0
+                    </div>
+                </div>
+            </div>
+            <div class='img_item'>
+                <img class="main" src="" referrerPolicy="no-referrer">
+                <div class="img_des">
+                    <div class="imd_des_tex">tags:</div>
+                    <div class="likes">
+                        0
+                    </div>
+                </div>
+            </div>
+            <div class='img_item'>
+                <img class="main" src="" referrerPolicy="no-referrer">
+                <div class="img_des">
+                    <div class="imd_des_tex">tags:</div>
+                    <div class="likes">
+                        0
+                    </div>
+                </div>
+            </div>
+            <div class='img_item'>
+                <img class="main" src="" referrerPolicy="no-referrer">
+                <div class="img_des">
+                    <div class="imd_des_tex">tags:</div>
+                    <div class="likes">
+                        0
+                    </div>
+                </div>
+            </div>
+            <div class='img_item'>
+                <img class="main" src="" referrerPolicy="no-referrer">
+                <div class="img_des">
+                    <div class="imd_des_tex">tags:</div>
+                    <div class="likes">
+                        0
+                    </div>
+                </div>
+            </div>
+            <div class='img_item'>
+                <img class="main" src="" referrerPolicy="no-referrer">
+                <div class="img_des">
+                    <div class="imd_des_tex">tags:</div>
+                    <div class="likes">
+                        0
+                    </div>
+                </div>
+            </div>
+            <div class='img_item'>
+                <img class="main" src="" referrerPolicy="no-referrer">
+                <div class="img_des">
+                    <div class="imd_des_tex">tags:</div>
+                    <div class="likes">
+                        0
+                    </div>
+                </div>
+            </div>
+            <div class='img_item'>
+                <img class="main" src="" referrerPolicy="no-referrer">
+                <div class="img_des">
+                    <div class="imd_des_tex">tags:</div>
+                    <div class="likes">
+                        0
+                    </div>
+                </div>
+            </div>
+            <div class='img_item'>
+                <img class="main" src="" referrerPolicy="no-referrer">
+                <div class="img_des">
+                    <div class="imd_des_tex">tags:</div>
+                    <div class="likes">
+                        0
+                    </div>
+                </div>
+            </div>
+            <div class='img_item'>
+                <img class="main" src="" referrerPolicy="no-referrer">
+                <div class="img_des">
+                    <div class="imd_des_tex">tags:</div>
+                    <div class="likes">
+                        0
+                    </div>
+                </div>
+            </div>
+            <div class='img_item'>
+                <img class="main" src="" referrerPolicy="no-referrer">
+                <div class="img_des">
+                    <div class="imd_des_tex">tags:</div>
+                    <div class="likes">
+                        0
+                    </div>
+                </div>
+            </div>
+            <div class='img_item'>
+                <img class="main" src="" referrerPolicy="no-referrer">
+                <div class="img_des">
+                    <div class="imd_des_tex">tags:</div>
+                    <div class="likes">
+                        0
+                    </div>
+                </div>
+            </div>
+            <div class='img_item'>
+                <img class="main" src="" referrerPolicy="no-referrer">
+                <div class="img_des">
+                    <div class="imd_des_tex">tags:</div>
+                    <div class="likes">
+                        0
+                    </div>
+                </div>
+            </div>
+            <div class='img_item'>
+                <img class="main" src="" referrerPolicy="no-referrer">
+                <div class="img_des">
+                    <div class="imd_des_tex">tags:</div>
+                    <div class="likes">
+                        0
+                    </div>
+                </div>
+            </div>
+            <div class='img_item'>
+                <img class="main" src="" referrerPolicy="no-referrer">
+                <div class="img_des">
+                    <div class="imd_des_tex">tags:</div>
+                    <div class="likes">
+                        0
+                    </div>
+                </div>
+            </div>
+            <div class='img_item'>
+                <img class="main" src="" referrerPolicy="no-referrer">
+                <div class="img_des">
+                    <div class="imd_des_tex">tags:</div>
+                    <div class="likes">
+                        0
+                    </div>
+                </div>
+            </div>
+            <div class='img_item'>
+                <img class="main" src="" referrerPolicy="no-referrer">
+                <div class="img_des">
+                    <div class="imd_des_tex">tags:</div>
+                    <div class="likes">
+                        0
+                    </div>
                 </div>
             </div>
         </div>
-        <div class='img_item'>
-            <img class="main" src="" referrerPolicy="no-referrer">
-            <div class="img_des">
-                <div class="imd_des_tex">tags:</div>
-                <div class="likes">
-                    0
-                </div>
-            </div>
+        <div class="page-icon">
+            <button class="page-last" onclick="lastPage()">上一页<i></i></button>
+            <span id="pageCurrent" class="page-current">1</span>
+            <button class="page-next" onclick="nextPage()">下一页<i></i></button>
         </div>
-        <div class='img_item'>
-            <img class="main" src="" referrerPolicy="no-referrer">
-            <div class="img_des">
-                <div class="imd_des_tex">tags:</div>
-                <div class="likes">
-                    0
-                </div>
-            </div>
-        </div>
-        <div class='img_item'>
-            <img class="main" src="" referrerPolicy="no-referrer">
-            <div class="img_des">
-                <div class="imd_des_tex">tags:</div>
-                <div class="likes">
-                    0
-                </div>
-            </div>
-        </div>
-        <div class='img_item'>
-            <img class="main" src="" referrerPolicy="no-referrer">
-            <div class="img_des">
-                <div class="imd_des_tex">tags:</div>
-                <div class="likes">
-                    0
-                </div>
-            </div>
-        </div>
-        <div class='img_item'>
-            <img class="main" src="" referrerPolicy="no-referrer">
-            <div class="img_des">
-                <div class="imd_des_tex">tags:</div>
-                <div class="likes">
-                    0
-                </div>
-            </div>
-        </div>
-        <div class='img_item'>
-            <img class="main" src="" referrerPolicy="no-referrer">
-            <div class="img_des">
-                <div class="imd_des_tex">tags:</div>
-                <div class="likes">
-                    0
-                </div>
-            </div>
-        </div>
-        <div class='img_item'>
-            <img class="main" src="" referrerPolicy="no-referrer">
-            <div class="img_des">
-                <div class="imd_des_tex">tags:</div>
-                <div class="likes">
-                    0
-                </div>
-            </div>
-        </div>
-        <div class='img_item'>
-            <img class="main" src="" referrerPolicy="no-referrer">
-            <div class="img_des">
-                <div class="imd_des_tex">tags:</div>
-                <div class="likes">
-                    0
-                </div>
-            </div>
-        </div>
-        <div class='img_item'>
-            <img class="main" src="" referrerPolicy="no-referrer">
-            <div class="img_des">
-                <div class="imd_des_tex">tags:</div>
-                <div class="likes">
-                    0
-                </div>
-            </div>
-        </div>
-        <div class='img_item'>
-            <img class="main" src="" referrerPolicy="no-referrer">
-            <div class="img_des">
-                <div class="imd_des_tex">tags:</div>
-                <div class="likes">
-                    0
-                </div>
-            </div>
-        </div>
-        <div class='img_item'>
-            <img class="main" src="" referrerPolicy="no-referrer">
-            <div class="img_des">
-                <div class="imd_des_tex">tags:</div>
-                <div class="likes">
-                    0
-                </div>
-            </div>
-        </div>
-        <div class='img_item'>
-            <img class="main" src="" referrerPolicy="no-referrer">
-            <div class="img_des">
-                <div class="imd_des_tex">tags:</div>
-                <div class="likes">
-                    0
-                </div>
-            </div>
-        </div>
-        <div class='img_item'>
-            <img class="main" src="" referrerPolicy="no-referrer">
-            <div class="img_des">
-                <div class="imd_des_tex">tags:</div>
-                <div class="likes">
-                    0
-                </div>
-            </div>
-        </div>
-        <div class='img_item'>
-            <img class="main" src="" referrerPolicy="no-referrer">
-            <div class="img_des">
-                <div class="imd_des_tex">tags:</div>
-                <div class="likes">
-                    0
-                </div>
-            </div>
-        </div>
-        <div class='img_item'>
-            <img class="main" src="" referrerPolicy="no-referrer">
-            <div class="img_des">
-                <div class="imd_des_tex">tags:</div>
-                <div class="likes">
-                    0
-                </div>
-            </div>
-        </div>
-        <div class='img_item'>
-            <img class="main" src="" referrerPolicy="no-referrer">
-            <div class="img_des">
-                <div class="imd_des_tex">tags:</div>
-                <div class="likes">
-                    0
-                </div>
-            </div>
-        </div>
-        <div class='img_item'>
-            <img class="main" src="" referrerPolicy="no-referrer">
-            <div class="img_des">
-                <div class="imd_des_tex">tags:</div>
-                <div class="likes">
-                    0
-                </div>
-            </div>
-        </div>
-        <div class='img_item'>
-            <img class="main" src="" referrerPolicy="no-referrer">
-            <div class="img_des">
-                <div class="imd_des_tex">tags:</div>
-                <div class="likes">
-                    0
-                </div>
-            </div>
-        </div>
-        <div class='img_item'>
-            <img class="main" src="" referrerPolicy="no-referrer">
-            <div class="img_des">
-                <div class="imd_des_tex">tags:</div>
-                <div class="likes">
-                    0
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="page-icon">
-        <button class="page-last" onclick="lastPage()">上一页<i></i></button>
-        <span id="pageCurrent" class="page-current">1</span>
-        <button class="page-next" onclick="nextPage()">下一页<i></i></button>
     </div>
 
 </body>
@@ -266,20 +268,23 @@
         httpRequest.send(JSON.stringify(obj));
     }
 
-    var data = decodeURI(document.URL)
-    data = data.slice(data.indexOf("=") + 1)
-    if (data == "random") {
-        document.getElementsByClassName("order")[0].selectedIndex = 4;
-        search();
-    } else if (data != "") {
-        data = data.split(";");
-        console.log(data);
-        document.getElementById("input1").value = data[0];
-        document.getElementById("input2").value = data[1];
-        document.getElementById("input3").value = data[2];
-        document.getElementsByClassName("order")[0].selectedIndex = data[3];
-        search();
+    var data = decodeURI(document.URL);
+    if (data.includes("=")) {
+        data = data.slice(data.indexOf("=") + 1);
+        if (data == "random") {
+            document.getElementsByClassName("order")[0].selectedIndex = 4;
+            search();
+        } else if (data != "") {
+            data = data.split(";");
+            console.log(data);
+            document.getElementById("input1").value = data[0];
+            document.getElementById("input2").value = data[1];
+            document.getElementById("input3").value = data[2];
+            document.getElementsByClassName("order")[0].selectedIndex = data[3];
+            search();
+        }
     }
+
 
     for (const item of imgs) {
         var img = item.getElementsByTagName("img")[0];
@@ -307,7 +312,7 @@
         httpRequest.onload = function () {
             var json = httpRequest.responseText;
             var res = JSON.parse(json);
-            img["img"].src = res['url']+"-small";
+            img["img"].src = res['url'] + "-small";
             var tags_text = "";
             if (res['author'] != 0 && res['author'] != null) {
                 tags_text += res['author'];
