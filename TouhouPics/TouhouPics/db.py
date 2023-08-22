@@ -54,7 +54,6 @@ def add_tag(dic:dict):
         pic = pictures.objects.get(id=dic.get("id"))
     except pictures.DoesNotExist:
         return -3
-    print(dic)
     author = dic.get("author")
     character = dic.get("character")
     tag = dic.get("tags")
@@ -303,7 +302,6 @@ def merge(dic:dict):
         tags_main = set(pic_main.tags.split('#'))
     else:
         tags_main = set()
-    print (ids)
     for id_ in ids:
         try:
             pic = pictures.objects.get(id=id_)
