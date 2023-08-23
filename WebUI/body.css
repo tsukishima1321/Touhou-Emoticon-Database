@@ -1,0 +1,37 @@
+@media screen and (orientation:landscape) {
+    .body {
+        margin: 0 auto;
+        margin-top: 40px;
+        width: 80%;
+        background-color: rgba(255,255,255,0.6);
+    }
+
+    body {
+        width: 100%;
+        background-image: url(bg.png);
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+        background-attachment: fixed;
+        background-size: cover;
+    }
+
+}
+
+@media screen and (orientation:portrait) {
+    .body {
+        margin: 0 auto;
+        margin-top: 40px;
+        width: 95%;
+        background-color: rgba(255,255,255,0.6);
+    }
+
+    body {
+        width: 100%;
+        background-image: url(bg.png);
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+        background-attachment: fixed;
+        background-size: cover;
+    }
+
+}

@@ -15,24 +15,15 @@
     }
 }
 
-.body {
-    margin: 0 auto;
-    margin-top: 20px;
-    width: 80%;
-    height: 90%;
-}
-
 .box {
     display: flex;
     align-items: center;
     justify-content: center;
     margin: 0 auto;
-    margin-top: 10%;
+    margin-top: 20px;
     width: 80%;
     height: 100%;
 }
-
-
 
 .main {
     height: 100%;
