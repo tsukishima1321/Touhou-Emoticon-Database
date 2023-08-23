@@ -137,7 +137,7 @@ def api(request):
             return JsonResponse({"message":"error"})
         
     elif method == "getUploadToken":
-        keys = open("/home/anthony/qiniuKeys.txt","r")
+        keys = open("~/qiniuKeys.txt","r")
         keys = keys.read().splitlines()
         q = Auth(keys[0],keys[1])
         bucket_name = 'touhou-emoticon'
