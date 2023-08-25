@@ -14,10 +14,33 @@
             <option>不符合东方表情包的主题</option>
             <option>其他</option>
         </select>
-        <input type="text" placeholder="详细：">
-        <input type="button" value="提交">
+        <input type="text" class="detail" placeholder="详细：">
+        <input type="button" value="提交" onclick="report()">
     </body>
 </html>
 <script>
-
+    var url = "http://120.26.195.153:1096/api/";
+    var picid = decodeURI(document.URL);
+    picid = picid.slice(picid.indexOf("=") + 1);
+    function report() {
+        var reason = document.getElementsByClassName("reason")[0][document.getElementsByClassName("reason")[0].selectedIndex].innerHTML;
+        var detail = document.getElementsByClassName("detail")[0].value;
+        var httpRequest = new XMLHttpRequest();
+        httpRequest.open('POST', url, true);
+        httpRequest.setRequestHeader("Content-type", "application/json; charset=utf-8");
+        var obj = {
+            "method": "report",
+            "id": picid,
+            "reason": reason,
+            "detail":detail,
+        };
+        httpRequest.onload = function () {
+            var json = httpRequest.responseText;
+            var res = JSON.parse(json);
+            if (res["message"] == ":)") {
+                alert("已提交");
+            }
+        }
+        httpRequest.send(JSON.stringify(obj));
+    }
 </script>
