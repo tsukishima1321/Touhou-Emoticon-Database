@@ -1,0 +1,32 @@
+@media screen and (orientation:landscape) {
+    .img_detail {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        align-items: center;
+    }
+
+}
+
+@media screen and (orientation:portrait) {
+    .img_detail {
+        display: grid;
+        grid-template-columns: 1fr;
+        align-items: center;
+    }
+}
+
+.box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    margin-top: 20px;
+    width: 80%;
+    height: 100%;
+}
+
+.main {
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+}
