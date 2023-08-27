@@ -2,16 +2,28 @@
 
 <head>
     <link rel="stylesheet" type="text/css" href="style_upload.css">
+    <link rel="stylesheet" type="text/css" href="body.css">
+    <link rel="stylesheet" type="text/css" href="picview.css">
+    <title>上传</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
     <meta name="viewport" content="user-scalable=no" />
 </head>
 
 <body>
-    <input type="file" id="upload" accept=".xbm,.tif,.pjp,.svgz,jpg,.jpeg,.tiff,.gif,.svg,.jfif,.webp,.png,.bmp,.pjpeg,.avif">
-    <input type="button" value="确认上传" onclick="upload()">
-    <img class="main">
-    <a href="" class="hide">点击前往图片详情页</a>
+    <div class="body">
+        <div class="box">
+            <div class="img_detail">
+                <img src="" class="main" referrerPolicy="no-referrer">
+                <div>
+                    <input type="file" id="upload" onchange="change()"
+                        accept=".xbm,.tif,.pjp,.svgz,jpg,.jpeg,.tiff,.gif,.svg,.jfif,.webp,.png,.bmp,.pjpeg,.avif">
+                    <input type="button" value="确认上传" onclick="upload()">
+                    <a href="" class="hide">点击前往图片详情页</a>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 
 </html>
@@ -23,6 +35,14 @@
 
     const input = document.querySelector("#upload");
     const img = document.getElementsByClassName("main")[0];
+
+    function change(){
+        const file = input.files[0];
+        if (file == undefined) {
+            return;
+        }
+        img.src = URL.createObjectURL(file);
+    }
 
     function upload() {
         const file = input.files[0];
@@ -36,7 +56,7 @@
             return;
         }
         const size = file["size"];
-        if(size>2048){
+        if (size > 2048 * 1024) {
             alert("文件过大，请上传2MB以内的文件");
             return;
         }
@@ -82,7 +102,7 @@
                         } else {
                             token = res["key"];
                             const observable = qiniu.upload(file, key, token);
-                            const subscription = observable.subscribe(uploadComplete(key,md5));
+                            const subscription = observable.subscribe(uploadComplete(key, md5));
                         }
                     }
                     httpRequest2.send(JSON.stringify(obj));
@@ -92,7 +112,7 @@
         }
     }
 
-    function uploadComplete(name,hash) {
+    function uploadComplete(name, hash) {
         var httpRequest = new XMLHttpRequest();
         httpRequest.open('POST', url, true);
         httpRequest.setRequestHeader("Content-type", "application/json; charset=utf-8");
