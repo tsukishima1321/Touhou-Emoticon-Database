@@ -5024,3 +5024,371 @@ ValueError: Field 'id' expected a number but got 'file:///mnt/EE2CE16E2CE131EF/D
 [27/Aug/2023 07:11:49] "POST /api/ HTTP/1.1" 200 159
 Not Found: /http:/120.26.195.153:1096/
 [27/Aug/2023 07:41:44] "GET http://120.26.195.153:1096/ HTTP/1.1" 404 1699
+Not Found: /
+[27/Aug/2023 16:18:36] "GET / HTTP/1.0" 404 2199
+Not Found: /
+[27/Aug/2023 16:18:39] "OPTIONS / HTTP/1.0" 404 2203
+[27/Aug/2023 16:18:40] code 400, message Bad request version ('RTSP/1.0')
+[27/Aug/2023 16:18:40] "OPTIONS / RTSP/1.0" 400 -
+[27/Aug/2023 16:18:46] code 400, message Bad request version ('\x00\x01\x97|\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00')
+[27/Aug/2023 16:18:46] "  (rþ          |                    " 400 -
+[27/Aug/2023 16:18:51] code 400, message Bad HTTP/0.9 request type ('\x00')
+[27/Aug/2023 16:18:51] "          versionbind   " 400 -
+[27/Aug/2023 16:18:56] code 400, message Bad HTTP/0.9 request type ('\x00')
+[27/Aug/2023 16:18:56] "            " 400 -
+[27/Aug/2023 16:18:57] code 400, message Bad request syntax ('EHLO')
+[27/Aug/2023 16:18:57] "EHLO" 400 -
+[27/Aug/2023 16:18:57] code 400, message Bad request syntax ('HELP')
+[27/Aug/2023 16:18:57] "HELP" 400 -
+[27/Aug/2023 16:18:58] code 400, message Bad request syntax ('\x16\x03\x00\x00S\x01\x00\x00O\x03\x00?G×÷º,îê²`~ó\x00ý\x82{¹Õ\x96Èw\x9bæÄÛ<=Ûoï\x10n\x00\x00(\x00\x16\x00\x13\x00')
+[27/Aug/2023 16:18:58] You're accessing the development server over HTTPS, but it only supports HTTP.
+
+[27/Aug/2023 16:18:58] code 400, message Bad HTTP/0.9 request type ('\x03\x00\x00*%à\x00\x00\x00\x00\x00Cookie:')
+[27/Aug/2023 16:18:58] "  *%à     Cookie: mstshash=nmap" 400 -
+[27/Aug/2023 16:18:59] code 400, message Bad request version ('\x00/\x00')
+[27/Aug/2023 16:18:59] You're accessing the development server over HTTPS, but it only supports HTTP.
+
+[27/Aug/2023 16:19:00] code 400, message Bad HTTP/0.9 request type ('\x80\x9e\x01\x03\x01\x00u\x00\x00\x00')
+[27/Aug/2023 16:19:00] " u      f  e  d  c  b  :  9  8  5  4  3  2  /                        " 400 -
+[27/Aug/2023 16:19:01] code 400, message Bad request syntax ('\x00\x00\x00qj\x81n0\x81k¡\x03\x02\x01\x05¢\x03\x02\x01')
+[27/Aug/2023 16:19:01] "   qjn0k¡¢" 400 -
+[27/Aug/2023 16:19:06] code 400, message Bad request syntax ('\x00\x00\x00¤ÿSMBr\x00\x00\x00\x00\x08\x01@\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00@\x06\x00\x00\x01\x00\x00\x81\x00\x02PC NETWORK PROGRAM 1.0\x00\x02MICROSOFT NETWORKS 1.03\x00\x02MICROSOFT NETWORKS 3.0\x00\x02LANMAN1.0\x00\x02LM1.2X002\x00\x02Samba\x00\x02NT LANMAN 1.0\x00\x02NT LM 0.12\x00')
+[27/Aug/2023 16:19:06] "   ¤ÿSMBr    @              @     PC NETWORK PROGRAM 1.0 MICROSOFT NETWORKS 1.03 MICROSOFT NETWORKS 3.0 LANMAN1.0 LM1.2X002 Samba NT LANMAN 1.0 NT LM 0.12 " 400 -
+[27/Aug/2023 16:19:12] code 400, message Bad HTTP/0.9 request type ('l\x00')
+[27/Aug/2023 16:19:12] "l          " 400 -
+Not Found: /nice ports,/Trinity.txt.bak
+[27/Aug/2023 16:19:12] "GET /nice%20ports%2C/Tri%6Eity.txt%2ebak HTTP/1.0" 404 2300
+[27/Aug/2023 16:19:13] code 400, message Bad request syntax ('\x01default')
+[27/Aug/2023 16:19:13] "default" 400 -
+[27/Aug/2023 16:19:13] code 400, message Bad request syntax ('0\x84\x00\x00\x00-\x02\x01\x07c\x84\x00\x00\x00$\x04\x00')
+[27/Aug/2023 16:19:13] "0   -c   $ " 400 -
+[27/Aug/2023 16:19:18] code 400, message Bad HTTP/0.9 request type ('0')
+[27/Aug/2023 16:19:18] "0`  " 400 -
+[27/Aug/2023 16:19:19] code 400, message Bad request version ('SIP/2.0')
+[27/Aug/2023 16:19:19] "OPTIONS sip:nm SIP/2.0" 400 -
+[27/Aug/2023 16:19:24] code 400, message Bad request syntax ('TNMP\x04\x00\x00\x00TNME\x00\x00\x04\x00')
+[27/Aug/2023 16:19:24] "TNMP   TNME   " 400 -
+[27/Aug/2023 16:19:29] code 400, message Bad HTTP/0.9 request type ('\x03\x00\x00')
+[27/Aug/2023 16:19:29] "  à     " 400 -
+[27/Aug/2023 16:19:34] code 400, message Bad request syntax ('DmdT\x00\x00\x00\x17\x00\x00\x00\x01\x00\x00\x00\x00\x11\x11\x00ÿ\x01ÿ\x13')
+[27/Aug/2023 16:19:34] "DmdT           ÿÿ" 400 -
+[27/Aug/2023 16:19:39] code 400, message Bad HTTP/0.9 request type (':\x00\x00\x00/\x00\x00\x00\x02\x00\x00@\x02\x0f\x00\x01\x00=\x05\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00/\x00\x00\x00\x00\x00\x00\x00\x00\x00@')
+[27/Aug/2023 16:19:39] ":   /     @  =            /         @                 " 400 -
+[27/Aug/2023 16:19:44] code 400, message Bad request syntax ('DIST00000001ARGC00000005ARGV00000002ccARGV00000002-cARGV00000006nmap.cARGV00000002-oARGV00000006nmap.oDOTI00000000')
+[27/Aug/2023 16:19:44] "DIST00000001ARGC00000005ARGV00000002ccARGV00000002-cARGV00000006nmap.cARGV00000002-oARGV00000006nmap.oDOTI00000000" 400 -
+[27/Aug/2023 16:19:49] code 400, message Bad request syntax ('JRMI\x00\x02K')
+[27/Aug/2023 16:19:49] "JRMI K" 400 -
+[27/Aug/2023 16:19:54] code 400, message Bad request syntax ('\x01\x00\x00\x00\x01\x00\x00\x00\x08\x08')
+[27/Aug/2023 16:19:54] "      " 400 -
+[27/Aug/2023 16:19:54] code 400, message Bad request version ('>')
+[27/Aug/2023 16:19:54] "< NTP/1.0 >" 400 -
+[27/Aug/2023 16:19:59] code 400, message Bad request syntax ('\x01\x00\x00ýÎú\x0b°\xa0\x00\x00\x00MMS\x14\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x12\x00\x00\x00\x01\x00\x03\x00ðððð\x0b\x00\x04\x00\x1c\x00\x03\x00N\x00S\x00P\x00l\x00a\x00y\x00e\x00r\x00/\x009\x00.\x000\x00.\x000\x00.\x002\x009\x008\x000\x00;\x00 \x00{\x000\x000\x000\x000\x00A\x00A\x000\x000\x00-\x000\x00A\x000\x000\x00-\x000\x000\x00a\x000\x00-\x00A\x00A\x000\x00A\x00-\x000\x000\x000\x000\x00A\x000\x00A\x00A\x000\x00A\x00A\x000\x00}\x00\x00\x00àmß_')
+[27/Aug/2023 16:19:59] "  ýÎú°    MMS                    ðððð    N S P l a y e r / 9 . 0 . 0 . 2 9 8 0 ;   { 0 0 0 0 A A 0 0 - 0 A 0 0 - 0 0 a 0 - A A 0 A - 0 0 0 0 A 0 A A 0 A A 0 }   àmß_" 400 -
+[27/Aug/2023 16:20:04] code 400, message Bad HTTP/0.9 request type ('\x00Z\x00\x00\x01\x00\x00\x00\x016\x01,\x00\x00\x08\x00\x7fÿ\x7f\x08\x00\x00\x00\x01\x00')
+[27/Aug/2023 16:20:04] " Z     6,   ÿ      :                4æ           (CONNECT_DATA=(COMMAND=version))" 400 -
+[27/Aug/2023 16:20:04] code 400, message Bad request syntax ('Subscribe')
+[27/Aug/2023 16:20:04] "Subscribe" 400 -
+[27/Aug/2023 16:20:04] code 400, message Bad request syntax ('Query')
+[27/Aug/2023 16:20:04] "Query" 400 -
+[27/Aug/2023 16:20:05] code 400, message Bad request syntax ('\x05\x04\x00\x01\x02\x80\x05\x01\x00\x03')
+[27/Aug/2023 16:20:05] "  " 400 -
+[27/Aug/2023 16:20:10] code 400, message Bad request syntax ('\x04\x01\x00\x16\x7f\x00\x00\x01root\x00')
+[27/Aug/2023 16:20:10] "   root " 400 -
+[27/Aug/2023 16:20:15] code 400, message Bad request version ('\x03\x00(\x00\x04ÿ\x08\x00\x01U\x00\x00\x00MSSQLServer\x00H\x0f\x00\x00')
+[27/Aug/2023 16:20:15] " 4            ( ÿ U   MSSQLServer H  " 400 -
+[27/Aug/2023 16:20:15] code 400, message Bad request syntax ('HELP')
+[27/Aug/2023 16:20:15] "HELP" 400 -
+[27/Aug/2023 16:20:15] code 400, message Bad request syntax ('stats')
+[27/Aug/2023 16:20:15] "stats" 400 -
+[27/Aug/2023 16:20:15] code 400, message Bad request syntax ('\x00\x00\x00\x01\x00\x00\x00\x13\x00\x00\x00\x02\x00\x00\x00$\x00\x00\x00\x0bservice_mgr\x00\x00\x00\x00\x02\x00\x00\x00\x13\x01\x08scanner \x04\x05nmap \x06\x00\x00\x00\x00\x00\x08\x00\x00\x00\x01\x00\x00\x00\x02\x00\x00\x00\x03\x00\x00\x00\x02\x00\x00\x00')
+[27/Aug/2023 16:20:15] "            $   service_mgr       scanner nmap                     " 400 -
+[27/Aug/2023 16:20:20] code 400, message Bad request syntax ('\x00\x00\x00\x00DB2DAS      \x01\x04\x00\x00\x00\x109z\x00\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x01\x0c\x00\x00\x00\x00\x00\x00\x0c\x00\x00\x00\x0c\x00\x00\x00\x04')
+[27/Aug/2023 16:20:20] "    DB2DAS         9z                       " 400 -
+[27/Aug/2023 16:20:25] code 400, message Bad request syntax ('\x01Â\x00\x00\x00\x04\x00\x00¶\x01\x00\x00SQLDB2RA\x00\x01\x00\x00\x04\x01\x01\x00\x05\x00\x1d\x00\x88\x00\x00\x00\x01\x00\x00\x80\x00\x00\x00\x01\t\x00\x00\x00\x01\x00\x00@\x00\x00\x00\x01\t\x00\x00\x00\x01\x00\x00@\x00\x00\x00\x01\x08\x00\x00\x00\x04\x00\x00@\x00\x00\x00\x01\x04\x00\x00\x00\x01\x00\x00@\x00\x00\x00@\x04\x00\x00\x00\x04\x00\x00@\x00\x00\x00\x01\x04\x00\x00\x00\x04\x00\x00@\x00\x00\x00\x01\x04\x00\x00\x00\x04\x00\x00@\x00\x00\x00\x01\x04\x00\x00\x00\x02\x00\x00@\x00\x00\x00\x01\x04\x00\x00\x00\x04\x00\x00@\x00\x00\x00\x01\x00\x00\x00\x00\x01\x00\x00@\x00\x00\x00\x00\x04\x00\x00\x00\x04\x00\x00\x80\x00\x00\x00\x01\x04\x00\x00\x00\x04\x00\x00\x80\x00\x00\x00\x01\x04\x00\x00\x00\x03\x00\x00\x80\x00\x00\x00\x01\x04\x00\x00\x00\x04\x00\x00\x80\x00\x00\x00\x01\x08\x00\x00\x00\x01\x00\x00@\x00\x00\x00\x01\x04\x00\x00\x00\x04\x00\x00@\x00\x00\x00\x01\x10\x00\x00\x00\x01\x00\x00\x80\x00\x00\x00\x01\x10\x00\x00\x00\x01\x00\x00\x80\x00\x00\x00\x01\x04\x00\x00\x00\x04\x00\x00@\x00\x00\x00\x01\t\x00\x00\x00\x01\x00\x00@\x00\x00\x00\x01\t\x00\x00\x00\x01\x00\x00\x80\x00\x00\x00\x01\x04\x00\x00\x00\x03\x00\x00\x80\x00\x00\x00\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x01\x04\x00\x00\x01\x00\x00\x80\x00\x00\x00\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x01\x00\x00@\x00\x00\x00\x01\x00\x00\x00\x00\x01\x00\x00@\x00\x00\x00\x00        \x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x01\x00ÿ\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00ä\x04\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x7f')
+[27/Aug/2023 16:20:25] "Â     ¶  SQLDB2RA              	     @   	     @        @        @   @     @        @        @        @        @         @                                         @        @                        @   	     @   	                                                                 @         @                             ÿ                     ä                   " 400 -
+[27/Aug/2023 16:20:30] code 400, message Bad request syntax ('Client string for PARC version 1 Wire Encryption version 1\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00')
+[27/Aug/2023 16:20:30] "Client string for PARC version 1 Wire Encryption version 1                                                                                                                                                                                                     " 400 -
+[27/Aug/2023 16:20:30] code 400, message Bad HTTP/0.9 request type ('<\x00K\x00\x00\x00')
+[27/Aug/2023 16:20:30] "< K             ÿÿÿÿ  " 400 -
+[27/Aug/2023 16:20:31] code 400, message Bad request syntax ('\x124\x00\x01')
+[27/Aug/2023 16:20:31] "4 " 400 -
+[27/Aug/2023 16:20:36] code 400, message Bad request syntax ('\x00\x03\x00\x01\x00\x00\x00\x00\x00\x00\x00\x02\x00\x00\x00\x00\x0f\x00')
+[27/Aug/2023 16:20:36] "              " 400 -
+[27/Aug/2023 16:20:36] code 400, message Bad request syntax ('serverstatus')
+[27/Aug/2023 16:20:36] "serverstatus" 400 -
+[27/Aug/2023 16:20:41] code 400, message Bad HTTP/0.9 request type ('Âååå\x9e')
+[27/Aug/2023 16:20:41] "Âååå ×¤¦ÐÕÝÜÈÖÝ×ÕÈÑÖÈÝ¤Ñ¡È¤ÒÕ×Ý£¤¡Ý¦×Ýå" 400 -
+[27/Aug/2023 16:20:41] code 400, message Bad request syntax ('#ST')
+[27/Aug/2023 16:20:41] "#ST" 400 -
+[27/Aug/2023 16:20:46] code 400, message Bad request version ('\x00\x00\x00\x03\x00\x05nmap\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00j\x00\x00\x00\x7f')
+[27/Aug/2023 16:20:46] " <   d e   = IEEEM  lsqlexec      9.280  RDS#R000000  sqli   3          nmap  nmap ol         =tlitcp      h     nmap            j   " 400 -
+[27/Aug/2023 16:20:51] code 400, message Bad request syntax ('\x002Ð\x01\x00\x01\x00,\x10A\x00\x04\x11^\x00\x04\x11m\x00\x04\x11Z\x00\x18\x14\x04\x14\x03\x00\x07$\x07\x00\x08$\x0f\x00\x08\x14@\x00\x08\x14t\x00\x08\x00\x04\x11G')
+[27/Aug/2023 16:20:51] " 2Ð  ,A ^ m Z  $ $ @ t  G" 400 -
+[27/Aug/2023 16:20:51] code 400, message Bad HTTP/0.9 request type ('TSH')
+[27/Aug/2023 16:20:51] "TSH    ì1           ¸  ID  " 400 -
+Not Found: /server-info
+[27/Aug/2023 16:20:52] "GET /server-info HTTP/1.1" 404 2250
+[27/Aug/2023 16:21:01] code 400, message Bad request syntax ('A\x00\x00\x00:0\x00\x00ÿÿÿÿÔ\x07\x00\x00\x00\x00\x00\x00test.$cmd\x00\x00\x00\x00\x00ÿÿÿÿ\x1b\x00\x00\x00\x01serverStatus\x00\x00\x00\x00\x00\x00\x00ð?\x00')
+[27/Aug/2023 16:21:01] "A   :0  ÿÿÿÿÔ      test.$cmd     ÿÿÿÿ   serverStatus       ð? " 400 -
+[27/Aug/2023 16:21:02] code 400, message Bad request syntax ('*1')
+[27/Aug/2023 16:21:02] "*1" 400 -
+[27/Aug/2023 16:21:07] code 400, message Bad request syntax ('\x00\x00\x00\x01\x07')
+[27/Aug/2023 16:21:07] "   " 400 -
+[27/Aug/2023 16:21:07] code 400, message Bad HTTP/0.9 request type ('show')
+[27/Aug/2023 16:21:07] "show info" 400 -
+[27/Aug/2023 16:21:12] code 400, message Bad request syntax ('\x80\x10\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x15ðÑb\x00\x00\x00\x00\x00\x00\x00\x00')
+[27/Aug/2023 16:21:12] "          ðÑb        " 400 -
+[27/Aug/2023 16:21:17] code 400, message Bad request syntax ('\x00\x01n')
+[27/Aug/2023 16:21:17] " n" 400 -
+[27/Aug/2023 16:21:22] code 400, message Bad request syntax ('vp3')
+[27/Aug/2023 16:21:22] "vp3" 400 -
+[27/Aug/2023 16:21:27] code 400, message Bad request syntax ('\x94\x00ÍïÑa\x91\x03')
+[27/Aug/2023 16:21:27] " ÍïÑa" 400 -
+[27/Aug/2023 16:21:32] code 400, message Bad request syntax ('þ\x01')
+[27/Aug/2023 16:21:32] "þ" 400 -
+Not Found: /version
+[27/Aug/2023 16:21:32] "GET /version HTTP/1.1" 404 2238
+[27/Aug/2023 16:21:42] code 400, message Bad request syntax ('\x00\x00\x07\x00\x08\x00\x03\x00\x04\x00\x05\x00\x06')
+[27/Aug/2023 16:21:42] "       " 400 -
+[27/Aug/2023 16:21:47] code 400, message Bad request syntax ('ÿû\x18ÿú\x18\x00IBM-3279-4-Eÿðÿû\x19ÿý\x19ÿû\x00ÿý\x00')
+[27/Aug/2023 16:21:47] "ÿûÿú IBM-3279-4-Eÿðÿûÿýÿû ÿý " 400 -
+[27/Aug/2023 16:21:52] code 400, message Bad request syntax ('GIOP\x01\x00\x01\x00$\x00\x00\x00\x00\x00\x00\x00\x01\x00\x00\x00\x01\x00\x00\x00\x06\x00\x00\x00abcdef\x00\x00\x04\x00\x00\x00get\x00\x00\x00\x00\x00')
+[27/Aug/2023 16:21:52] "GIOP  $                abcdef     get     " 400 -
+[27/Aug/2023 16:21:57] code 400, message Bad request syntax ('VERSION')
+[27/Aug/2023 16:21:57] "VERSION" 400 -
+[27/Aug/2023 16:22:02] code 400, message Bad request syntax ('CNXN\x00\x00\x00\x01\x00\x10\x00\x00\x07\x00\x00\x002\x02\x00\x00¼±§±host::\x00')
+[27/Aug/2023 16:22:02] "CNXN         2  ¼±§±host:: " 400 -
+[27/Aug/2023 16:22:07] code 400, message Bad HTTP/0.9 request type ('\x00\x00\x00\x10\x00\x00\x00')
+[27/Aug/2023 16:22:07] "      {"code":106}" 400 -
+[27/Aug/2023 16:22:12] code 400, message Bad request syntax ('\x0c\x00\x01\x00\x00\x00ImYorDad0u\x00\x00')
+[27/Aug/2023 16:22:12] "    ImYorDad0u  " 400 -
+[27/Aug/2023 16:22:17] code 400, message Bad HTTP/0.9 request type ('ÚÚ\x01\x00\x00\x00\x14\x00\x10\x03\x08\x00\x00\x00')
+[27/Aug/2023 16:22:17] "ÚÚ       M    " 400 -
+[27/Aug/2023 16:25:06] code 400, message Bad request syntax ('\x16\x03\x01\x02\x00\x01\x00\x01ü\x03\x03d8\x91½0Ú')
+[27/Aug/2023 16:25:06] You're accessing the development server over HTTPS, but it only supports HTTP.
+
+[27/Aug/2023 16:25:13] code 400, message Bad HTTP/0.9 request type ('\x80\x00\x00(0\x08]Õ\x00\x00\x00\x00\x00\x00\x00\x02\x00\x01\x86')
+[27/Aug/2023 16:25:13] "  (0]Õ                                " 400 -
+[27/Aug/2023 22:00:15] code 400, message Bad request syntax ("\x16\x03\x01\x02\x00\x01\x00\x01ü\x03\x03çÏyZC\x17\x89÷W\x803zàËÌ³y\x81\x06Yt _ÈÞMSÌDðÚC |\xad?¤>8\x9d\x89'}\r;Î\x84Ð·ý\x95#EVñùÑ3^p\x18\x9fÓ\t\x10\x00>\x13\x02\x13\x03\x13\x01À,À0\x00\x9fÌ©Ì¨ÌªÀ+À/\x00\x9eÀ$À(\x00kÀ#À'\x00gÀ")
+[27/Aug/2023 22:00:15] You're accessing the development server over HTTPS, but it only supports HTTP.
+
+Not Found: /
+[27/Aug/2023 22:00:15] "GET / HTTP/1.1" 404 2185
+[27/Aug/2023 22:28:08] code 400, message Bad request syntax ("\x16\x03\x01\x02\x00\x01\x00\x01ü\x03\x03¶\x0bÍMá0¢\x9fÃ¸¶NEéfà\x1cÖl¿Çótõ<Ä7\x88I²\x9aÆ \x12\x9cS°iç!\x05^\x8aèÒÕ\x14e§\x99¬7\x97Ö\\6÷Ë®\x88?\x1c¡\x7fø\x00>\x13\x02\x13\x03\x13\x01À,À0\x00\x9fÌ©Ì¨ÌªÀ+À/\x00\x9eÀ$À(\x00kÀ#À'\x00gÀ")
+[27/Aug/2023 22:28:08] You're accessing the development server over HTTPS, but it only supports HTTP.
+
+Not Found: /
+[27/Aug/2023 22:28:08] "GET / HTTP/1.1" 404 2185
+[28/Aug/2023 02:12:05] "OPTIONS /api/ HTTP/1.1" 200 0
+[28/Aug/2023 02:12:05] "POST /api/ HTTP/1.1" 200 126
+[28/Aug/2023 02:12:05] "POST /api/ HTTP/1.1" 200 161
+[28/Aug/2023 02:12:05] "POST /api/ HTTP/1.1" 200 177
+[28/Aug/2023 02:12:05] "POST /api/ HTTP/1.1" 200 160
+[28/Aug/2023 02:12:05] "POST /api/ HTTP/1.1" 200 161
+[28/Aug/2023 02:12:05] "POST /api/ HTTP/1.1" 200 161
+[28/Aug/2023 02:12:05] "POST /api/ HTTP/1.1" 200 161
+[28/Aug/2023 02:12:05] "POST /api/ HTTP/1.1" 200 161
+[28/Aug/2023 02:12:05] "POST /api/ HTTP/1.1" 200 197
+[28/Aug/2023 02:12:05] "POST /api/ HTTP/1.1" 200 161
+[28/Aug/2023 02:12:05] "POST /api/ HTTP/1.1" 200 161
+[28/Aug/2023 02:12:05] "POST /api/ HTTP/1.1" 200 161
+[28/Aug/2023 02:12:05] "POST /api/ HTTP/1.1" 200 161
+[28/Aug/2023 02:12:05] "POST /api/ HTTP/1.1" 200 160
+[28/Aug/2023 02:12:05] "POST /api/ HTTP/1.1" 200 161
+[28/Aug/2023 02:12:05] "POST /api/ HTTP/1.1" 200 161
+[28/Aug/2023 02:12:05] "POST /api/ HTTP/1.1" 200 161
+[28/Aug/2023 02:12:05] "POST /api/ HTTP/1.1" 200 161
+[28/Aug/2023 02:12:05] "POST /api/ HTTP/1.1" 200 161
+[28/Aug/2023 02:12:05] "POST /api/ HTTP/1.1" 200 161
+[28/Aug/2023 02:12:05] "POST /api/ HTTP/1.1" 200 161
+[28/Aug/2023 02:12:29,118] - Broken pipe from ('223.104.212.151', 25016)
+
+[28/Aug/2023 02:12:29,118] - Broken pipe from ('223.104.212.151', 25015)
+
+[28/Aug/2023 02:12:29,119] - Broken pipe from ('223.104.212.151', 25017)
+
+[28/Aug/2023 02:12:29,119] - Broken pipe from ('223.104.212.151', 25020)
+
+[28/Aug/2023 02:12:29,120] - Broken pipe from ('223.104.212.151', 25019)
+
+[28/Aug/2023 02:12:29,122] - Broken pipe from ('223.104.212.151', 25018)
+
+Not Found: /
+[28/Aug/2023 12:58:15] "GET / HTTP/1.0" 404 2199
+Not Found: /
+[28/Aug/2023 12:58:19] "OPTIONS / HTTP/1.0" 404 2203
+[28/Aug/2023 12:58:19] code 400, message Bad request version ('RTSP/1.0')
+[28/Aug/2023 12:58:19] "OPTIONS / RTSP/1.0" 400 -
+[28/Aug/2023 12:58:24] code 400, message Bad request version ('\x00\x01\x97|\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00')
+[28/Aug/2023 12:58:24] "  (rþ          |                    " 400 -
+[28/Aug/2023 12:58:29] code 400, message Bad HTTP/0.9 request type ('\x00')
+[28/Aug/2023 12:58:29] "          versionbind   " 400 -
+[28/Aug/2023 12:58:34] code 400, message Bad HTTP/0.9 request type ('\x00')
+[28/Aug/2023 12:58:34] "            " 400 -
+[28/Aug/2023 12:58:35] code 400, message Bad request syntax ('EHLO')
+[28/Aug/2023 12:58:35] "EHLO" 400 -
+[28/Aug/2023 12:58:35] code 400, message Bad request syntax ('HELP')
+[28/Aug/2023 12:58:35] "HELP" 400 -
+[28/Aug/2023 12:58:35] code 400, message Bad request syntax ('\x16\x03\x00\x00S\x01\x00\x00O\x03\x00?G×÷º,îê²`~ó\x00ý\x82{¹Õ\x96Èw\x9bæÄÛ<=Ûoï\x10n\x00\x00(\x00\x16\x00\x13\x00')
+[28/Aug/2023 12:58:35] You're accessing the development server over HTTPS, but it only supports HTTP.
+
+[28/Aug/2023 12:58:35] code 400, message Bad HTTP/0.9 request type ('\x03\x00\x00*%à\x00\x00\x00\x00\x00Cookie:')
+[28/Aug/2023 12:58:35] "  *%à     Cookie: mstshash=nmap" 400 -
+[28/Aug/2023 12:58:36] code 400, message Bad request version ('\x00/\x00')
+[28/Aug/2023 12:58:36] You're accessing the development server over HTTPS, but it only supports HTTP.
+
+[28/Aug/2023 12:58:36] code 400, message Bad HTTP/0.9 request type ('\x80\x9e\x01\x03\x01\x00u\x00\x00\x00')
+[28/Aug/2023 12:58:36] " u      f  e  d  c  b  :  9  8  5  4  3  2  /                        " 400 -
+[28/Aug/2023 12:58:36] code 400, message Bad request syntax ('\x00\x00\x00qj\x81n0\x81k¡\x03\x02\x01\x05¢\x03\x02\x01')
+[28/Aug/2023 12:58:36] "   qjn0k¡¢" 400 -
+[28/Aug/2023 12:58:41] code 400, message Bad request syntax ('\x00\x00\x00¤ÿSMBr\x00\x00\x00\x00\x08\x01@\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00@\x06\x00\x00\x01\x00\x00\x81\x00\x02PC NETWORK PROGRAM 1.0\x00\x02MICROSOFT NETWORKS 1.03\x00\x02MICROSOFT NETWORKS 3.0\x00\x02LANMAN1.0\x00\x02LM1.2X002\x00\x02Samba\x00\x02NT LANMAN 1.0\x00\x02NT LM 0.12\x00')
+[28/Aug/2023 12:58:41] "   ¤ÿSMBr    @              @     PC NETWORK PROGRAM 1.0 MICROSOFT NETWORKS 1.03 MICROSOFT NETWORKS 3.0 LANMAN1.0 LM1.2X002 Samba NT LANMAN 1.0 NT LM 0.12 " 400 -
+[28/Aug/2023 12:58:46] code 400, message Bad HTTP/0.9 request type ('l\x00')
+[28/Aug/2023 12:58:46] "l          " 400 -
+Not Found: /nice ports,/Trinity.txt.bak
+[28/Aug/2023 12:58:47] "GET /nice%20ports%2C/Tri%6Eity.txt%2ebak HTTP/1.0" 404 2300
+[28/Aug/2023 12:58:47] code 400, message Bad request syntax ('\x01default')
+[28/Aug/2023 12:58:47] "default" 400 -
+[28/Aug/2023 12:58:47] code 400, message Bad request syntax ('0\x84\x00\x00\x00-\x02\x01\x07c\x84\x00\x00\x00$\x04\x00')
+[28/Aug/2023 12:58:47] "0   -c   $ " 400 -
+[28/Aug/2023 12:58:52] code 400, message Bad HTTP/0.9 request type ('0')
+[28/Aug/2023 12:58:52] "0`  " 400 -
+[28/Aug/2023 12:58:53] code 400, message Bad request version ('SIP/2.0')
+[28/Aug/2023 12:58:53] "OPTIONS sip:nm SIP/2.0" 400 -
+[28/Aug/2023 12:58:58] code 400, message Bad request syntax ('TNMP\x04\x00\x00\x00TNME\x00\x00\x04\x00')
+[28/Aug/2023 12:58:58] "TNMP   TNME   " 400 -
+[28/Aug/2023 12:59:03] code 400, message Bad HTTP/0.9 request type ('\x03\x00\x00')
+[28/Aug/2023 12:59:03] "  à     " 400 -
+[28/Aug/2023 12:59:08] code 400, message Bad request syntax ('DmdT\x00\x00\x00\x17\x00\x00\x00\x01\x00\x00\x00\x00\x11\x11\x00ÿ\x01ÿ\x13')
+[28/Aug/2023 12:59:08] "DmdT           ÿÿ" 400 -
+[28/Aug/2023 12:59:13] code 400, message Bad HTTP/0.9 request type (':\x00\x00\x00/\x00\x00\x00\x02\x00\x00@\x02\x0f\x00\x01\x00=\x05\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00/\x00\x00\x00\x00\x00\x00\x00\x00\x00@')
+[28/Aug/2023 12:59:13] ":   /     @  =            /         @                 " 400 -
+[28/Aug/2023 12:59:18] code 400, message Bad request syntax ('DIST00000001ARGC00000005ARGV00000002ccARGV00000002-cARGV00000006nmap.cARGV00000002-oARGV00000006nmap.oDOTI00000000')
+[28/Aug/2023 12:59:18] "DIST00000001ARGC00000005ARGV00000002ccARGV00000002-cARGV00000006nmap.cARGV00000002-oARGV00000006nmap.oDOTI00000000" 400 -
+[28/Aug/2023 12:59:23] code 400, message Bad request syntax ('JRMI\x00\x02K')
+[28/Aug/2023 12:59:23] "JRMI K" 400 -
+[28/Aug/2023 12:59:28] code 400, message Bad request syntax ('\x01\x00\x00\x00\x01\x00\x00\x00\x08\x08')
+[28/Aug/2023 12:59:28] "      " 400 -
+[28/Aug/2023 12:59:28] code 400, message Bad request version ('>')
+[28/Aug/2023 12:59:28] "< NTP/1.0 >" 400 -
+[28/Aug/2023 12:59:33] code 400, message Bad request syntax ('\x01\x00\x00ýÎú\x0b°\xa0\x00\x00\x00MMS\x14\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x12\x00\x00\x00\x01\x00\x03\x00ðððð\x0b\x00\x04\x00\x1c\x00\x03\x00N\x00S\x00P\x00l\x00a\x00y\x00e\x00r\x00/\x009\x00.\x000\x00.\x000\x00.\x002\x009\x008\x000\x00;\x00 \x00{\x000\x000\x000\x000\x00A\x00A\x000\x000\x00-\x000\x00A\x000\x000\x00-\x000\x000\x00a\x000\x00-\x00A\x00A\x000\x00A\x00-\x000\x000\x000\x000\x00A\x000\x00A\x00A\x000\x00A\x00A\x000\x00}\x00\x00\x00àmß_')
+[28/Aug/2023 12:59:33] "  ýÎú°    MMS                    ðððð    N S P l a y e r / 9 . 0 . 0 . 2 9 8 0 ;   { 0 0 0 0 A A 0 0 - 0 A 0 0 - 0 0 a 0 - A A 0 A - 0 0 0 0 A 0 A A 0 A A 0 }   àmß_" 400 -
+[28/Aug/2023 12:59:38] code 400, message Bad HTTP/0.9 request type ('\x00Z\x00\x00\x01\x00\x00\x00\x016\x01,\x00\x00\x08\x00\x7fÿ\x7f\x08\x00\x00\x00\x01\x00')
+[28/Aug/2023 12:59:38] " Z     6,   ÿ      :                4æ           (CONNECT_DATA=(COMMAND=version))" 400 -
+[28/Aug/2023 12:59:39] code 400, message Bad request syntax ('Subscribe')
+[28/Aug/2023 12:59:39] "Subscribe" 400 -
+[28/Aug/2023 12:59:39] code 400, message Bad request syntax ('Query')
+[28/Aug/2023 12:59:39] "Query" 400 -
+[28/Aug/2023 12:59:39] code 400, message Bad request syntax ('\x05\x04\x00\x01\x02\x80\x05\x01\x00\x03')
+[28/Aug/2023 12:59:39] "  " 400 -
+[28/Aug/2023 12:59:45] code 400, message Bad request syntax ('\x04\x01\x00\x16\x7f\x00\x00\x01root\x00')
+[28/Aug/2023 12:59:45] "   root " 400 -
+[28/Aug/2023 12:59:50] code 400, message Bad request version ('\x03\x00(\x00\x04ÿ\x08\x00\x01U\x00\x00\x00MSSQLServer\x00H\x0f\x00\x00')
+[28/Aug/2023 12:59:50] " 4            ( ÿ U   MSSQLServer H  " 400 -
+[28/Aug/2023 12:59:50] code 400, message Bad request syntax ('HELP')
+[28/Aug/2023 12:59:50] "HELP" 400 -
+[28/Aug/2023 12:59:50] code 400, message Bad request syntax ('stats')
+[28/Aug/2023 12:59:50] "stats" 400 -
+[28/Aug/2023 12:59:50] code 400, message Bad request syntax ('\x00\x00\x00\x01\x00\x00\x00\x13\x00\x00\x00\x02\x00\x00\x00$\x00\x00\x00\x0bservice_mgr\x00\x00\x00\x00\x02\x00\x00\x00\x13\x01\x08scanner \x04\x05nmap \x06\x00\x00\x00\x00\x00\x08\x00\x00\x00\x01\x00\x00\x00\x02\x00\x00\x00\x03\x00\x00\x00\x02\x00\x00\x00')
+[28/Aug/2023 12:59:50] "            $   service_mgr       scanner nmap                     " 400 -
+[28/Aug/2023 12:59:55] code 400, message Bad request syntax ('\x00\x00\x00\x00DB2DAS      \x01\x04\x00\x00\x00\x109z\x00\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x01\x0c\x00\x00\x00\x00\x00\x00\x0c\x00\x00\x00\x0c\x00\x00\x00\x04')
+[28/Aug/2023 12:59:55] "    DB2DAS         9z                       " 400 -
+[28/Aug/2023 13:00:00] code 400, message Bad request syntax ('\x01Â\x00\x00\x00\x04\x00\x00¶\x01\x00\x00SQLDB2RA\x00\x01\x00\x00\x04\x01\x01\x00\x05\x00\x1d\x00\x88\x00\x00\x00\x01\x00\x00\x80\x00\x00\x00\x01\t\x00\x00\x00\x01\x00\x00@\x00\x00\x00\x01\t\x00\x00\x00\x01\x00\x00@\x00\x00\x00\x01\x08\x00\x00\x00\x04\x00\x00@\x00\x00\x00\x01\x04\x00\x00\x00\x01\x00\x00@\x00\x00\x00@\x04\x00\x00\x00\x04\x00\x00@\x00\x00\x00\x01\x04\x00\x00\x00\x04\x00\x00@\x00\x00\x00\x01\x04\x00\x00\x00\x04\x00\x00@\x00\x00\x00\x01\x04\x00\x00\x00\x02\x00\x00@\x00\x00\x00\x01\x04\x00\x00\x00\x04\x00\x00@\x00\x00\x00\x01\x00\x00\x00\x00\x01\x00\x00@\x00\x00\x00\x00\x04\x00\x00\x00\x04\x00\x00\x80\x00\x00\x00\x01\x04\x00\x00\x00\x04\x00\x00\x80\x00\x00\x00\x01\x04\x00\x00\x00\x03\x00\x00\x80\x00\x00\x00\x01\x04\x00\x00\x00\x04\x00\x00\x80\x00\x00\x00\x01\x08\x00\x00\x00\x01\x00\x00@\x00\x00\x00\x01\x04\x00\x00\x00\x04\x00\x00@\x00\x00\x00\x01\x10\x00\x00\x00\x01\x00\x00\x80\x00\x00\x00\x01\x10\x00\x00\x00\x01\x00\x00\x80\x00\x00\x00\x01\x04\x00\x00\x00\x04\x00\x00@\x00\x00\x00\x01\t\x00\x00\x00\x01\x00\x00@\x00\x00\x00\x01\t\x00\x00\x00\x01\x00\x00\x80\x00\x00\x00\x01\x04\x00\x00\x00\x03\x00\x00\x80\x00\x00\x00\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x01\x04\x00\x00\x01\x00\x00\x80\x00\x00\x00\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x01\x00\x00@\x00\x00\x00\x01\x00\x00\x00\x00\x01\x00\x00@\x00\x00\x00\x00        \x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x01\x00ÿ\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00ä\x04\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x7f')
+[28/Aug/2023 13:00:00] "Â     ¶  SQLDB2RA              	     @   	     @        @        @   @     @        @        @        @        @         @                                         @        @                        @   	     @   	                                                                 @         @                             ÿ                     ä                   " 400 -
+[28/Aug/2023 13:00:05] code 400, message Bad request syntax ('Client string for PARC version 1 Wire Encryption version 1\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00')
+[28/Aug/2023 13:00:05] "Client string for PARC version 1 Wire Encryption version 1                                                                                                                                                                                                     " 400 -
+[28/Aug/2023 13:00:06] code 400, message Bad HTTP/0.9 request type ('<\x00K\x00\x00\x00')
+[28/Aug/2023 13:00:06] "< K             ÿÿÿÿ  " 400 -
+[28/Aug/2023 13:00:06] code 400, message Bad request syntax ('\x124\x00\x01')
+[28/Aug/2023 13:00:06] "4 " 400 -
+[28/Aug/2023 13:00:12] code 400, message Bad request syntax ('\x00\x03\x00\x01\x00\x00\x00\x00\x00\x00\x00\x02\x00\x00\x00\x00\x0f\x00')
+[28/Aug/2023 13:00:12] "              " 400 -
+[28/Aug/2023 13:00:12] code 400, message Bad request syntax ('serverstatus')
+[28/Aug/2023 13:00:12] "serverstatus" 400 -
+[28/Aug/2023 13:00:17] code 400, message Bad HTTP/0.9 request type ('Âååå\x9e')
+[28/Aug/2023 13:00:17] "Âååå ×¤¦ÐÕÝÜÈÖÝ×ÕÈÑÖÈÝ¤Ñ¡È¤ÒÕ×Ý£¤¡Ý¦×Ýå" 400 -
+[28/Aug/2023 13:00:17] code 400, message Bad request syntax ('#ST')
+[28/Aug/2023 13:00:17] "#ST" 400 -
+[28/Aug/2023 13:00:22] code 400, message Bad request version ('\x00\x00\x00\x03\x00\x05nmap\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00j\x00\x00\x00\x7f')
+[28/Aug/2023 13:00:22] " <   d e   = IEEEM  lsqlexec      9.280  RDS#R000000  sqli   3          nmap  nmap ol         =tlitcp      h     nmap            j   " 400 -
+[28/Aug/2023 13:00:27] code 400, message Bad request syntax ('\x002Ð\x01\x00\x01\x00,\x10A\x00\x04\x11^\x00\x04\x11m\x00\x04\x11Z\x00\x18\x14\x04\x14\x03\x00\x07$\x07\x00\x08$\x0f\x00\x08\x14@\x00\x08\x14t\x00\x08\x00\x04\x11G')
+[28/Aug/2023 13:00:27] " 2Ð  ,A ^ m Z  $ $ @ t  G" 400 -
+[28/Aug/2023 13:00:27] code 400, message Bad HTTP/0.9 request type ('TSH')
+[28/Aug/2023 13:00:27] "TSH    ì1           ¸  ID  " 400 -
+Not Found: /server-info
+[28/Aug/2023 13:00:28] "GET /server-info HTTP/1.1" 404 2250
+[28/Aug/2023 13:00:38] code 400, message Bad request syntax ('A\x00\x00\x00:0\x00\x00ÿÿÿÿÔ\x07\x00\x00\x00\x00\x00\x00test.$cmd\x00\x00\x00\x00\x00ÿÿÿÿ\x1b\x00\x00\x00\x01serverStatus\x00\x00\x00\x00\x00\x00\x00ð?\x00')
+[28/Aug/2023 13:00:38] "A   :0  ÿÿÿÿÔ      test.$cmd     ÿÿÿÿ   serverStatus       ð? " 400 -
+[28/Aug/2023 13:00:38] code 400, message Bad request syntax ('*1')
+[28/Aug/2023 13:00:38] "*1" 400 -
+[28/Aug/2023 13:00:43] code 400, message Bad request syntax ('\x00\x00\x00\x01\x07')
+[28/Aug/2023 13:00:43] "   " 400 -
+[28/Aug/2023 13:00:43] code 400, message Bad HTTP/0.9 request type ('show')
+[28/Aug/2023 13:00:43] "show info" 400 -
+[28/Aug/2023 13:00:48] code 400, message Bad request syntax ('\x80\x10\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x15ðÑb\x00\x00\x00\x00\x00\x00\x00\x00')
+[28/Aug/2023 13:00:48] "          ðÑb        " 400 -
+[28/Aug/2023 13:00:53] code 400, message Bad request syntax ('\x00\x01n')
+[28/Aug/2023 13:00:53] " n" 400 -
+[28/Aug/2023 13:00:58] code 400, message Bad request syntax ('vp3')
+[28/Aug/2023 13:00:58] "vp3" 400 -
+[28/Aug/2023 13:01:03] code 400, message Bad request syntax ('\x94\x00ÍïÑa\x91\x03')
+[28/Aug/2023 13:01:03] " ÍïÑa" 400 -
+[28/Aug/2023 13:01:08] code 400, message Bad request syntax ('þ\x01')
+[28/Aug/2023 13:01:08] "þ" 400 -
+Not Found: /version
+[28/Aug/2023 13:01:09] "GET /version HTTP/1.1" 404 2238
+[28/Aug/2023 13:01:18] code 400, message Bad request syntax ('\x00\x00\x07\x00\x08\x00\x03\x00\x04\x00\x05\x00\x06')
+[28/Aug/2023 13:01:18] "       " 400 -
+[28/Aug/2023 13:01:23] code 400, message Bad request syntax ('ÿû\x18ÿú\x18\x00IBM-3279-4-Eÿðÿû\x19ÿý\x19ÿû\x00ÿý\x00')
+[28/Aug/2023 13:01:23] "ÿûÿú IBM-3279-4-Eÿðÿûÿýÿû ÿý " 400 -
+[28/Aug/2023 13:01:28] code 400, message Bad request syntax ('GIOP\x01\x00\x01\x00$\x00\x00\x00\x00\x00\x00\x00\x01\x00\x00\x00\x01\x00\x00\x00\x06\x00\x00\x00abcdef\x00\x00\x04\x00\x00\x00get\x00\x00\x00\x00\x00')
+[28/Aug/2023 13:01:28] "GIOP  $                abcdef     get     " 400 -
+[28/Aug/2023 13:01:33] code 400, message Bad request syntax ('VERSION')
+[28/Aug/2023 13:01:33] "VERSION" 400 -
+[28/Aug/2023 13:01:39] code 400, message Bad request syntax ('CNXN\x00\x00\x00\x01\x00\x10\x00\x00\x07\x00\x00\x002\x02\x00\x00¼±§±host::\x00')
+[28/Aug/2023 13:01:39] "CNXN         2  ¼±§±host:: " 400 -
+[28/Aug/2023 13:01:44] code 400, message Bad HTTP/0.9 request type ('\x00\x00\x00\x10\x00\x00\x00')
+[28/Aug/2023 13:01:44] "      {"code":106}" 400 -
+[28/Aug/2023 13:01:49] code 400, message Bad request syntax ('\x0c\x00\x01\x00\x00\x00ImYorDad0u\x00\x00')
+[28/Aug/2023 13:01:49] "    ImYorDad0u  " 400 -
+[28/Aug/2023 13:01:54] code 400, message Bad HTTP/0.9 request type ('ÚÚ\x01\x00\x00\x00\x14\x00\x10\x03\x08\x00\x00\x00')
+[28/Aug/2023 13:01:54] "ÚÚ       M    " 400 -
+[28/Aug/2023 13:04:24] code 400, message Bad request syntax ("\x16\x03\x01\x02\x00\x01\x00\x01ü\x03\x03\x86µisñL\x99\x8f0¿JI¥aº\x85ÛP\x8a\x87=î®Ì\x0c\x07â+\x95§qÁ \x05ßÏ¢\x06Íe\x88k$ñ4\x99\x16÷º±y]eè$ò9Ò©±%ËQ\x13+\x00\x9c\x13\x02\x13\x03\x13\x01\x003\x009\x005\x00/À,À0\x00£\x00\x9fÌ©Ì¨ÌªÀ¯À\xadÀ£À\x9fÀ]ÀaÀWÀSÀ+À/\x00¢\x00\x9eÀ®À¬À¢À\x9eÀ\\À`ÀVÀRÀ$À(\x00k\x00jÀsÀw\x00Ä\x00ÃÀ#À'\x00g\x00@ÀrÀv\x00¾\x00½À")
+[28/Aug/2023 13:04:24] You're accessing the development server over HTTPS, but it only supports HTTP.
+
+[28/Aug/2023 13:04:42] code 400, message Bad request syntax ('\x80\x00\x00(\x02½')
+[28/Aug/2023 13:04:42] "  (½" 400 -
+[28/Aug/2023 22:10:30] code 400, message Bad request version ("¶¬Ò»ó\x97XÒ§Ù£!È²Ë\x05ñ\x93\x07¸l±¬þ8p\x9aßhVõ:\x00>\x13\x02\x13\x03\x13\x01À,À0\x00\x9fÌ©Ì¨ÌªÀ+À/\x00\x9eÀ$À(\x00kÀ#À'\x00gÀ")
+[28/Aug/2023 22:10:30] You're accessing the development server over HTTPS, but it only supports HTTP.
+
+Not Found: /
+[28/Aug/2023 22:10:30] "GET / HTTP/1.1" 404 2185
+[28/Aug/2023 22:32:53] code 400, message Bad request syntax ('\x16\x03\x01\x02\x00\x01\x00\x01ü\x03\x03s\x1annwø\x02D`qÍ\x9cô\x97%Ô9N\x0eQ\x14\x8d+\x98d$ÇMµ,\x15â ±°\x13\x15\x95Ü"-`¬Ò\x9c\x12\x0c÷Èö\x1dÄ\x04')
+[28/Aug/2023 22:32:53] You're accessing the development server over HTTPS, but it only supports HTTP.
+
+Not Found: /
+[28/Aug/2023 22:32:53] "GET / HTTP/1.1" 404 2185
+[29/Aug/2023 01:45:14] "OPTIONS /api/ HTTP/1.1" 200 0
+[29/Aug/2023 01:45:15] "POST /api/ HTTP/1.1" 200 122
+[29/Aug/2023 01:45:15] "POST /api/ HTTP/1.1" 200 161
+[29/Aug/2023 01:45:15] "POST /api/ HTTP/1.1" 200 160
+[29/Aug/2023 01:45:15] "POST /api/ HTTP/1.1" 200 160
+[29/Aug/2023 01:45:15] "POST /api/ HTTP/1.1" 200 161
+[29/Aug/2023 01:45:15] "POST /api/ HTTP/1.1" 200 161
+[29/Aug/2023 01:45:15] "POST /api/ HTTP/1.1" 200 161
+[29/Aug/2023 01:45:15] "POST /api/ HTTP/1.1" 200 161
+[29/Aug/2023 01:45:15] "POST /api/ HTTP/1.1" 200 161
+[29/Aug/2023 01:45:15] "POST /api/ HTTP/1.1" 200 160
+[29/Aug/2023 01:45:15] "POST /api/ HTTP/1.1" 200 177
+[29/Aug/2023 01:45:15] "POST /api/ HTTP/1.1" 200 161
+[29/Aug/2023 01:45:15] "POST /api/ HTTP/1.1" 200 161
+[29/Aug/2023 01:45:15] "POST /api/ HTTP/1.1" 200 161
+[29/Aug/2023 01:45:15] "POST /api/ HTTP/1.1" 200 161
+[29/Aug/2023 01:45:15] "POST /api/ HTTP/1.1" 200 161
+[29/Aug/2023 01:45:15] "POST /api/ HTTP/1.1" 200 160
+[29/Aug/2023 01:45:15] "POST /api/ HTTP/1.1" 200 161
+[29/Aug/2023 01:45:15] "POST /api/ HTTP/1.1" 200 161
+[29/Aug/2023 01:45:15] "POST /api/ HTTP/1.1" 200 160
+[29/Aug/2023 01:45:15] "POST /api/ HTTP/1.1" 200 160
+[29/Aug/2023 04:17:08] code 400, message Bad HTTP/0.9 request type ('\x03\x00\x00/*à\x00\x00\x00\x00\x00Cookie:')
+[29/Aug/2023 04:17:08] "  /*à     Cookie: mstshash=Administr" 400 -
