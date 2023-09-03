@@ -8,7 +8,7 @@ from qiniu import Auth
 base_path=["http://rz7wkpffc.bkt.clouddn.com/",
            "http://i0.hdslb.com/bfs/article/",]
 
-server_url="http://[240e:38b:8d7a:5100:102e:e0da:fd49:ba8]/api/"
+server_url="http://120.26.195.153:1096/api/"
 
 def std_item_res(item):
     return JsonResponse({"id":item.id, 'url':base_path[item.source] + item.name, 'author':item.author, 'character':item.character, 'tags':item.tags, 'likes':item.likes})
