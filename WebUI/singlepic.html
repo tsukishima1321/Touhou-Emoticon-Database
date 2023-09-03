@@ -75,7 +75,7 @@
     var url = "http://120.26.195.153:1096/api/";
 
     var picid = decodeURI(document.URL);
-    if (data.includes("=")){
+    if (picid.includes("=")){
         picid = picid.slice(picid.indexOf("=") + 1);
     }else{
         picid = 0;
