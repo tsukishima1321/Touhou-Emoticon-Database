@@ -1,0 +1,88 @@
+<html>
+
+<head>
+    <link rel="stylesheet" type="text/css" href="index.css">
+    <link rel="stylesheet" type="text/css" href="body.css">
+    <link rel="stylesheet" type="text/css" href="searchbar.css">
+    <title>铃奈庵图库</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content="user-scalable=no" />
+</head>
+
+<body>
+    <div class="body">
+        <h1>东方表情包数据库</h1>
+        <p>这是一个东方表情包为主题的图片管理展示平台<BR>本站尚未备案，请勿公开分享<BR>禁止上传不适宜的图片</p>
+        <h2>你可以：</h2>
+        <div class="random">
+            <div class="rd" onclick="random()">
+                抽卡！
+            </div>
+            <div class="rd_20" onclick="random_20()">
+                十连！
+            </div>
+
+        </div>
+        <h2>或者：</h2>
+
+        <div class="searchBar">
+            <div class="box1">
+                <input id="input1" type="text" class="input" placeholder="请输入作者">
+            </div>
+            <div class="box2">
+                <input id="input2" type="text" class="input" placeholder="请输入角色">
+            </div>
+            <div class="box3">
+                <input id="input3" type="text" class="input" placeholder="请输入其他tag">
+            </div>
+            <div class="searchButton">
+                <input type="button" value="搜索" class="button" onclick="search()">
+            </div>
+            <select class="order">
+                <option>id升序</option>
+                <option>id降序</option>
+                <option>点赞数降序</option>
+                <option>点赞数升序</option>
+                <option>随机</option>
+            </select>
+        </div>
+
+        <h2>或者：</h2>
+
+        <div class="upload" onclick="upload()">上传图片</div>
+    </div>
+</body>
+
+</html>
+
+<script>
+    function random() {
+        window.open(decodeURI('./singlepic.html?' + 'picid=' + "random"));
+    }
+    function random_20() {
+        window.open(decodeURI('./search.html?' + 'data=' + "random"))
+    }
+    function search() {
+        var author = document.getElementById("input1").value.replaceAll(" ", "#");
+        var character = document.getElementById("input2").value.replaceAll(" ", "#");
+        var tags = document.getElementById("input3").value.replaceAll(" ", "#");
+        var order = document.getElementsByClassName("order")[0][document.getElementsByClassName("order")[0].selectedIndex].innerHTML;
+        if (order == "随机") {
+            order = 4;
+        } else if (order == "id升序") {
+            order = 0;
+        } else if (order == "id降序") {
+            order = 1;
+        } else if (order == "点赞数升序") {
+            order = 3;
+        } else if (order == "点赞数降序") {
+            order = 2;
+        }
+        var data = author + ";" + character + ";" + tags + ";" + order;
+        window.open(decodeURI('./search.html?' + 'data=' + data));
+    }
+    function upload() {
+        window.open(decodeURI('./upload.html'));
+    }
+</script>

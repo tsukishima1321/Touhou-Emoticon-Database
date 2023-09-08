@@ -1,0 +1,271 @@
+<html>
+
+<head>
+    <link rel="stylesheet" type="text/css" href="style_singlepic.css">
+    <link rel="stylesheet" type="text/css" href="body.css">
+    <link rel="stylesheet" type="text/css" href="picview.css">
+    <meta charset="utf-8" />
+    <title>图片详情查看</title>
+    <meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content="user-scalable=no" />
+</head>
+
+<body>
+    <div class="body">
+        <div class="box">
+            <div class="img_detail">
+                <img src="" class="main" referrerPolicy="no-referrer">
+                <ul>
+                    <li class="author">
+                        <p>作者：</p>
+                        <div class="tag_show">
+                            <ul class="tag_item">
+                                <li class="add_button" onclick="start_add(0)">添加</li>
+                                <li class="edit_button" onclick="start_edit(0)">编辑</li>
+                            </ul>
+                        </div>
+                        <input type="text" class="tag_edit_hide" placeholder="输入要添加的标签 用#分隔多个标签" size="40">
+                        <input type="button" class="edit_commit_hide" value="确认">
+                        <input type="button" class="cancel_hide" value="取消">
+                    </li>
+                    <li class="character">
+                        <p>角色：</p>
+                        <div class="tag_show">
+                            <ul class="tag_item">
+                                <li class="add_button" onclick="start_add(1)">添加</li>
+                                <li class="edit_button" onclick="start_edit(1)">编辑</li>
+                            </ul>
+                        </div>
+                        <input type="text" class="tag_edit_hide" placeholder="输入要添加的标签 用#分隔多个标签" size="40">
+                        <input type="button" class="edit_commit_hide" value="确认">
+                        <input type="button" class="cancel_hide" value="取消">
+                    </li>
+                    <li class="tags">
+                        <p>其他tag：</p>
+                        <div class="tag_show">
+                            <ul class="tag_item">
+                                <li class="add_button" onclick="start_add(2)">添加</li>
+                                <li class="edit_button" onclick="start_edit(2)">编辑</li>
+                            </ul>
+                        </div>
+                        <input type="text" class="tag_edit_hide" placeholder="输入要添加的标签 用#分隔多个标签" size="40">
+                        <input type="button" class="edit_commit_hide" value="确认">
+                        <input type="button" class="cancel_hide" value="取消">
+                    </li>
+                    <li class="bar">
+                        <div class="likes">
+                            <img src="thumb_up_line_icon.svg" style="height: 40px;width: 40px; cursor: pointer;"
+                                onclick="like()">
+                            <div>0</div>
+                        </div>
+                        <div class="report">
+                            <img src="" style="height: 40px;width: 40px; cursor: pointer;" onclick="report()">
+                            <div onclick="report()" style="cursor: pointer;">举报</div>
+                        </div>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+
+<script>
+
+    var url = "http://120.26.195.153:1096/api/";
+
+    var picid = decodeURI(document.URL);
+    if (picid.includes("=")){
+        picid = picid.slice(picid.indexOf("=") + 1);
+    }else{
+        picid = 0;
+    }
+
+    var specialChar = RegExp(/[(\~)(\~)(\!)(\@)(\$)(\￥)(\%)(\^)(\&)(\*)(\()(\（)(\))(\）)(\-)(\_))(\——)(\+)(\=)(\[)(\【)(\])(\】)(\{)(\})(\|))(\、))(\)(\\)(\;)(\；)(\:)(\：)(\')(\‘)(\’)(\")(\“)(\”)(\,)(\，)(\.)(\。)(\/)(\《)(\<)(\>)(\》)(\?)(\)]+/);
+
+    var img = document.getElementsByClassName("main")[0];
+    var names = ["author", "character", "tags"];
+    var contents = [];
+    var likes = document.getElementsByClassName("likes")[0].getElementsByTagName("div")[0];
+    for (const n of names) {
+        contents.push(document.getElementsByClassName(n)[0].getElementsByTagName("ul")[0]);
+    }
+
+    contents_text = ["", "", ""]
+
+    console.log(picid);
+    getImg(picid);
+
+    function clear() {
+        for (let i = 0; i < 3; i++) {
+            var first = contents[i].firstElementChild;
+            while (first) {
+                if (first.className == "add_button") {
+                    break;
+                }
+                first.remove();
+                first = contents[i].firstElementChild;
+            }
+        }
+    }
+
+    function like() {
+        var httpRequest = new XMLHttpRequest();
+        httpRequest.open('POST', url, true);
+        httpRequest.setRequestHeader("Content-type", "application/json; charset=utf-8");
+        var obj = {
+            "method": "like",
+            "id": picid,
+        };
+        httpRequest.onload = function () {
+            var json = httpRequest.responseText;
+            var res = JSON.parse(json);
+            if (res["message"] == ":)") {
+                likes.innerHTML++;
+            }
+        }
+        httpRequest.send(JSON.stringify(obj));
+    }
+
+    function getImg(id) {
+        clear();
+        var httpRequest = new XMLHttpRequest();
+        httpRequest.open('POST', url, true);
+        httpRequest.setRequestHeader("Content-type", "application/json; charset=utf-8");
+        var obj = {
+            "method": "getItemById",
+            "id": id
+        };
+        if (id == "random") {
+            obj["method"] = "getRandomItem";
+        }
+        httpRequest.onload = function () {
+            var json = httpRequest.responseText;
+            var res = JSON.parse(json);
+            img.src = res['url'];
+            picid = res["id"];
+            likes.innerHTML = res['likes'];
+            for (let i = 0; i < 3; i++) {
+                var text = res[names[i]];
+                if (text != null) {
+                    contents_text[i] = text;
+                    text = text.split("#");
+                    for (const t of text) {
+                        if (t != "") {
+                            var tt = document.createElement("li");
+                            tt.className = "single_tag";
+                            tt.innerText = t;
+                            var button = document.getElementsByClassName("add_button")[i];
+                            contents[i].appendChild(tt);
+                            contents[i].insertBefore(tt, button);
+                        }
+                    }
+                }
+            }
+        }
+        httpRequest.send(JSON.stringify(obj));
+    }
+
+    function start_add(i) {
+        var input = document.getElementsByClassName(names[i])[0].getElementsByTagName("input");
+        var text = input[0];
+        var commit = input[1]
+        var cancel = input[2];
+        text.className = "tag_edit";
+        cancel.className = "cancel";
+        commit.className = "add_commit";
+        cancel.addEventListener("click", function (ev) {
+            text.className = "tag_edit_hide";
+            cancel.className = "cancel_hide";
+            commit.className = "edit_commit_hide";
+            text.value = "";
+        });
+        commit.addEventListener("click", function (ev) {
+            var t = text.value;
+            if (specialChar.test(t)) {
+                alert("输入含有不允许的特殊字符");
+                return
+            }
+            if (i != 2 && (t.length + contents_text[i].length > 40) || t.length + contents_text[i].length > 200) {
+                alert("标签储存空间已满");
+                return
+            }
+            var httpRequest = new XMLHttpRequest();
+            httpRequest.open('POST', url, true);
+            httpRequest.setRequestHeader("Content-type", "application/json; charset=utf-8");
+            const tagName = names[i];
+            var obj = {
+                "method": "addTag",
+                "id": picid,
+            };
+            obj[tagName] = t;
+            httpRequest.onload = function () {
+                var json = httpRequest.responseText;
+                var res = JSON.parse(json);
+                if (res["message"] != null) {
+                    console.log(res);
+                }
+                text.className = "tag_edit_hide";
+                cancel.className = "cancel_hide";
+                commit.className = "edit_commit_hide";
+                text.value = "";
+                window.location.reload();
+            }
+            httpRequest.send(JSON.stringify(obj));
+        });
+    }
+
+    function start_edit(i) {
+        var input = document.getElementsByClassName(names[i])[0].getElementsByTagName("input");
+        var text = input[0];
+        var commit = input[1]
+        var cancel = input[2];
+        text.className = "tag_edit";
+        text.value = contents_text[i];
+        cancel.className = "cancel";
+        commit.className = "edit_commit";
+        cancel.addEventListener("click", function (ev) {
+            text.className = "tag_edit_hide";
+            cancel.className = "cancel_hide";
+            commit.className = "edit_commit_hide";
+            text.value = "";
+        });
+        commit.addEventListener("click", function (ev) {
+            var t = text.value;
+            if (specialChar.test(t)) {
+                alert("输入含有不允许的特殊字符");
+                return
+            }
+            if (i != 2 && (t.length > 40) || t.length > 200) {
+                alert("输入过长");
+                return
+            }
+            var httpRequest = new XMLHttpRequest();
+            httpRequest.open('POST', url, true);
+            httpRequest.setRequestHeader("Content-type", "application/json; charset=utf-8");
+            const tagName = names[i];
+            var obj = {
+                "method": "editTag",
+                "id": picid,
+            };
+            obj[tagName] = t;
+            httpRequest.onload = function () {
+                var json = httpRequest.responseText;
+                var res = JSON.parse(json);
+                if (res["message"] != null) {
+                    console.log(res);
+                }
+                text.className = "tag_edit_hide";
+                cancel.className = "cancel_hide";
+                commit.className = "edit_commit_hide";
+                text.value = "";
+                window.location.reload();
+            }
+            httpRequest.send(JSON.stringify(obj));
+        });
+    }
+    function report() {
+        window.open(encodeURI('./report.html?' + 'picid=' + picid));
+    }
+
+</script>

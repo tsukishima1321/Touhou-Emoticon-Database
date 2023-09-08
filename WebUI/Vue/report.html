@@ -1,0 +1,81 @@
+<html>
+
+<head>
+    <link rel="stylesheet" type="text/css" href="style_report.css">
+    <link rel="stylesheet" type="text/css" href="body.css">
+    <link rel="stylesheet" type="text/css" href="picview.css">
+    <title>举报</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content="user-scalable=no" />
+</head>
+
+<body>
+    <div class="body">
+        <div class="box">
+            <div class="img_detail">
+                <img src="" class="main" referrerPolicy="no-referrer">
+                <div>
+                    <select class="reason">
+                        <option>政治敏感</option>
+                        <option>色情</option>
+                        <option>不符合东方表情包的主题</option>
+                        <option>其他</option>
+                    </select>
+                    <input type="text" class="detail" placeholder="详细：">
+                    <input type="button" value="提交" onclick="report()">
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+<script>
+    var url = "http://120.26.195.153:1096/api/";
+    var picid = decodeURI(document.URL);
+    if (data.includes("=")){
+        picid = picid.slice(picid.indexOf("=") + 1);
+    }else{
+        picid = 0;
+    }
+    var img = document.getElementsByClassName("main")[0];
+    getImg(picid);
+    function report() {
+        var reason = document.getElementsByClassName("reason")[0][document.getElementsByClassName("reason")[0].selectedIndex].innerHTML;
+        var detail = document.getElementsByClassName("detail")[0].value;
+        var httpRequest = new XMLHttpRequest();
+        httpRequest.open('POST', url, true);
+        httpRequest.setRequestHeader("Content-type", "application/json; charset=utf-8");
+        var obj = {
+            "method": "report",
+            "id": picid,
+            "reason": reason,
+            "detail": detail,
+        };
+        httpRequest.onload = function () {
+            var json = httpRequest.responseText;
+            var res = JSON.parse(json);
+            if (res["message"] == ":)") {
+                alert("已提交");
+            }
+        }
+        httpRequest.send(JSON.stringify(obj));
+    }
+    function getImg(id) {
+        var httpRequest = new XMLHttpRequest();
+        httpRequest.open('POST', url, true);
+        httpRequest.setRequestHeader("Content-type", "application/json; charset=utf-8");
+        var obj = {
+            "method": "getItemById",
+            "id": id
+        };
+        httpRequest.onload = function () {
+            var json = httpRequest.responseText;
+            var res = JSON.parse(json);
+            img.src = res['url'];
+            picid = res["id"];
+        }
+        httpRequest.send(JSON.stringify(obj));
+    }
+</script>
