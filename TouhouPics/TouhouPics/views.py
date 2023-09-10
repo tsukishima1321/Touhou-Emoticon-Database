@@ -5,8 +5,8 @@ from . import db
 from . import logger
 from qiniu import Auth
 
-base_path=["http://rz7wkpffc.bkt.clouddn.com/",
-           "http://i0.hdslb.com/bfs/article/",]
+base_path=["http://i0.hdslb.com/bfs/article/",
+           "",]
 
 server_url="http://120.26.195.153:1096/api/"
 
