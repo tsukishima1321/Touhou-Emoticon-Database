@@ -39,5 +39,5 @@ dependencies:
     - qiniu==7.10.0
     - requests==2.27.1
     - urllib3==1.26.16
-prefix: /home/anthony/anaconda3/envs/webserver
+prefix: /root/anaconda3/envs/webserver
 
