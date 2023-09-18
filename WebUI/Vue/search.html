@@ -1,0 +1,239 @@
+<html>
+
+<head>
+    <link rel="stylesheet" type="text/css" href="style_search.css">
+    <link rel="stylesheet" type="text/css" href="searchbar.css">
+    <link rel="stylesheet" type="text/css" href="body.css">
+    <title>搜索</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content="user-scalable=no" />
+</head>
+
+<body>
+    <div class="body">
+        <div class="searchBar">
+            <div class="box1">
+                <input id="input1" type="text" class="input" placeholder="请输入作者">
+            </div>
+            <div class="box2">
+                <input id="input2" type="text" class="input" placeholder="请输入角色">
+            </div>
+            <div class="box3">
+                <input id="input3" type="text" class="input" placeholder="请输入其他tag">
+            </div>
+            <div class="searchButton">
+                <input type="button" value="搜索" class="button" onclick="search()">
+            </div>
+            <select class="order">
+                <option>id升序</option>
+                <option>id降序</option>
+                <option>点赞数降序</option>
+                <option>点赞数升序</option>
+                <option>随机</option>
+            </select>
+        </div>
+        <div id='img_wrapper'>
+            <img_item v-for="data in datas" :src="data.src" :tags="data.tags" :likes="data.likes" :pid="data.pid">
+            </img_item>
+        </div>
+        <div class="page-icon">
+            <button class="page-last" onclick="lastPage()">上一页<i></i></button>
+            <span id="pageCurrent" class="page-current">1</span>
+            <button class="page-next" onclick="nextPage()">下一页<i></i></button>
+        </div>
+    </div>
+
+</body>
+
+</html>
+
+<script src="vue3.js"></script>
+<script>
+
+    var url = "http://120.26.195.153:1096/api/";
+
+    var imgInfoData = reactive(Array(20).fill(0).map(() => { return { "id": 0, "src": "", "tags": "tags:", "likes": 0, "pid": 0 } }));
+    for (var i = 0; i < 20; i++) {
+        imgInfoData[i].id = i;
+    }
+
+    var imgItem = {
+        props: ["likes", "tags", "src", "pid"],
+        template: `<div class='img_item'>
+                <img class="main" :src="src" @click="openPic(pid)">
+                <div class="img_des">
+                    <div class="imd_des_tex">{{tags}}</div>
+                    <div class="likes">
+                        {{likes}}
+                    </div>
+                </div>
+            </div>`,
+        methods: {
+            openPic: function (pid) {
+                window.open(encodeURI('./singlepic.html?' + 'picid=' + pid));
+                return;
+            },
+            like: function (pid) {
+                var httpRequest = new XMLHttpRequest();
+                httpRequest.open('POST', url, true);
+                httpRequest.setRequestHeader("Content-type", "application/json; charset=utf-8");
+                var obj = {
+                    "method": "like",
+                    "id": pid
+                };
+                httpRequest.onload = function () {
+                    var json = httpRequest.responseText;
+                    var res = JSON.parse(json);
+                    if (res["message"] == ":)") {
+                        imgInfoData[id].likes++;
+                    }
+                }
+                httpRequest.send(JSON.stringify(obj));
+            }
+        }
+    }
+
+    var imgInfo = {
+        data() {
+            return {
+                datas: imgInfoData
+            }
+        }
+    }
+
+    const imgWrapper = Vue.createApp(imgInfo);
+
+    imgWrapper.component("img_item", imgItem);
+
+    const vm = imgWrapper.mount("#img_wrapper");
+
+    var author = "";
+    var character = "";
+    var tags = "";
+    var order = "";
+
+    var data = decodeURI(document.URL);
+    if (data.includes("=")) {
+        data = data.slice(data.indexOf("=") + 1);
+        if (data == "random") {
+            document.getElementsByClassName("order")[0].selectedIndex = 4;
+            search();
+        } else if (data != "") {
+            data = data.split(";");
+            document.getElementById("input1").value = data[0];
+            document.getElementById("input2").value = data[1];
+            document.getElementById("input3").value = data[2];
+            document.getElementsByClassName("order")[0].selectedIndex = data[3];
+            search();
+        }
+    }
+
+    var pagenum = 1;
+
+    function getImg(id, pid) {
+        var httpRequest = new XMLHttpRequest();
+        httpRequest.open('POST', url, true);
+        httpRequest.setRequestHeader("Content-type", "application/json; charset=utf-8");
+        var obj = {
+            "method": "getItemById",
+            "id": pid
+        };
+        httpRequest.onload = function () {
+            var json = httpRequest.responseText;
+            var res = JSON.parse(json);
+            var item = { "id": 0, "src": "", "tags": "tags:", "likes": 0, "pid": 0 };
+            item.src = res['url'] + "-small";
+            var tags_text = "";
+            if (res['author'] != 0 && res['author'] != null) {
+                tags_text += res['author'];
+            }
+            if (res['character'] != 0 && res['character'] != null) {
+                tags_text += res['character'];
+            }
+            if (res['tags'] != 0 && res['tags'] != null) {
+                tags_text += res['tags'];
+            }
+            item.tags = tags_text.substr(0, 30);
+            item.likes = res['likes'];
+            item.pid = pid;
+            imgInfoData[id] = item;
+        }
+        httpRequest.send(JSON.stringify(obj));
+    }
+
+    function search() {
+        debugger;
+
+        if (author != document.getElementById("input1").value.replaceAll(" ", "#")) {
+            author = document.getElementById("input1").value.replaceAll(" ", "#");
+            pagenum = 1;
+            document.getElementById("pageCurrent").innerHTML = 1;
+        }
+        if (character != document.getElementById("input2").value.replaceAll(" ", "#")) {
+            character = document.getElementById("input2").value.replaceAll(" ", "#");
+            pagenum = 1;
+            document.getElementById("pageCurrent").innerHTML = 1;
+        }
+        if (tags != document.getElementById("input3").value.replaceAll(" ", "#")) {
+            tags = document.getElementById("input3").value.replaceAll(" ", "#");
+            pagenum = 1;
+            document.getElementById("pageCurrent").innerHTML = 1;
+        }
+
+        if (order != document.getElementsByClassName("order")[0][document.getElementsByClassName("order")[0].selectedIndex].innerHTML) {
+            order = document.getElementsByClassName("order")[0][document.getElementsByClassName("order")[0].selectedIndex].innerHTML;
+            pagenum = 1;
+            document.getElementById("pageCurrent").innerHTML = 1;
+        }
+
+        if (order == "随机") {
+            order_ = "random"
+        } else if (order == "id升序") {
+            order_ = "id"
+        } else if (order == "id降序") {
+            order_ = "id_r"
+        } else if (order == "点赞数升序") {
+            order_ = "likes"
+        } else if (order == "点赞数降序") {
+            order_ = "likes_r"
+        }
+        var httpRequest = new XMLHttpRequest();
+        httpRequest.open('POST', url, true);
+        httpRequest.setRequestHeader("Content-type", "application/json; charset=utf-8");
+        var obj = {
+            "method": "searchByTag",
+            "author": author,
+            "character": character,
+            "tags": tags,
+            "page": pagenum,
+            "order": order_,
+        };
+        httpRequest.onload = function () {
+            var json = httpRequest.responseText;
+            var res = JSON.parse(json);
+            var ids = res["ids"];
+            imgInfoData = Array(20).fill(0).map(() => { return { "id": 0, "src": "", "tags": "tags:", "likes": 0, "pid": 0 } });
+            vm.datas = imgInfoData;
+            for (i = 0; i < ids.length; i++) {
+                getImg(i, ids[i]);
+            }
+        }
+        httpRequest.send(JSON.stringify(obj));
+    }
+
+    function nextPage() {
+        pagenum++;
+        document.getElementById("pageCurrent").innerHTML++;
+        search();
+    }
+
+    function lastPage() {
+        if (pagenum > 1) {
+            pagenum--;
+            document.getElementById("pageCurrent").innerHTML--;
+            search();
+        }
+    }
+
+</script>
