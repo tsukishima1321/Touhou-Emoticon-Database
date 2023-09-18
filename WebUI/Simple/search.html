@@ -316,7 +316,7 @@
         httpRequest.onload = function () {
             var json = httpRequest.responseText;
             var res = JSON.parse(json);
-            img["img"].src = res['url'] + "-small";
+            img["img"].src = res['url'];// + "-small";
             var tags_text = "";
             if (res['author'] != 0 && res['author'] != null) {
                 tags_text += res['author'];
